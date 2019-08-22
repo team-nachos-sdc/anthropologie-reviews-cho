@@ -9,6 +9,7 @@ db.once('open', function() {
 //schema
 var ProductModel = mongoose.model('ProductModel', {
   product_id: { type: String, require: true, unique: true },
+  product_category: String,
   reviews: [{
     username: { type: String, require: true, unique: true },
     location: String,
@@ -27,7 +28,10 @@ var ProductModel = mongoose.model('ProductModel', {
   }],
 })
 
-const Products = mongoose.model('Models', ProductModel);
+module.exports = ProductModel;
+
+
+// const Products = mongoose.model('Models', ProductModel);
 // var productSchema = new mongoose.Schema({
 //   product_id: { type: String, require: true, unique: true },
 //   reviews: { type: Array },
