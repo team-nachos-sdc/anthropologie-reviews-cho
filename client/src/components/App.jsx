@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
 import Title from './Title.jsx';
+import Reviews from './Reviews.jsx';
 
 export default class App extends Component {
   constructor(props){
@@ -36,7 +37,7 @@ export default class App extends Component {
     return(
       <div>
         <Title />
-        App component is rendering properly
+        <Reviews />
       </div>
     )
   }
