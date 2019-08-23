@@ -7,15 +7,15 @@ db.once('open', function() {
   //we're connected
 })
 //schema
-var ProductModel = mongoose.model('ProductModel', {
-  product_id: { type: String, require: true, unique: true },
+var ProductModel = mongoose.model('ProductMod', {
+  product_id: String,
   product_category: String,
   reviews: [{
-    username: { type: String, require: true, unique: true },
+    username: String,
     location: String,
-    age: Number,
+    age: String,
     body_type: String,
-    height: Number,
+    height: String,
     rating: Number,
     title: String,
     review: String,
@@ -24,16 +24,10 @@ var ProductModel = mongoose.model('ProductModel', {
     size_purchased: String,
     size: String,
     recommends: Boolean,
-    date: Date
+    date: String
   }],
 })
 
+
 module.exports = ProductModel;
-
-
-// const Products = mongoose.model('Models', ProductModel);
-// var productSchema = new mongoose.Schema({
-//   product_id: { type: String, require: true, unique: true },
-//   reviews: { type: Array },
-// })
 
