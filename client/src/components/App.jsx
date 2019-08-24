@@ -8,10 +8,13 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      productId: 1
+      productId: 1,
+      allProductReviews: [],
+      productReviews: []
     }
     //bind functions here
     this.loadPage = this.loadPage.bind(this);
+    this.getProductReviews = this.getProductReviews.bind(this);
   }
 
   componentDidMount() {
@@ -21,14 +24,22 @@ export default class App extends Component {
     When page loads, check URL param for productId
     When page loads, make get request based on what is in productId
   */
-  getProductId() {
-
+  getProductReviews(productId) {
+    productId = productId.toString(); //in case value is passed as number
+    const allProductReviews = this.state.allProductReviews;
+    const productReviews = allProductReviews.filter((productReviews) => {
+      return productReviews.product_id === productId
+    });
+    this.setState({
+      productReviews: productReviews
+    })
   }
 
   loadPage() {
     axios
-      .get('/get')
-      .then((data) => {console.log(`loaded get ${JSON.stringify(data)}`)})
+      .get('/api/getAll')
+      .then((data) => {this.setState({allProductReviews: data.data})})
+      .then(() => { this.getProductReviews('1') })
       .catch((err) => {console.log(`failed load get`)})
   }
 
@@ -38,6 +49,7 @@ export default class App extends Component {
       <div className="app">
         <Title />
         <Reviews />
+        {JSON.stringify(this.state.productReviews)}
       </div>
     )
   }

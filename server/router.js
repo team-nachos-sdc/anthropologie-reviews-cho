@@ -9,7 +9,7 @@ const {
 //   .get(controller.get) //get all products by productId url params
 
 router
-  .route('/get')
+  .route('/getAll')
   .get(getAll)
 
 module.exports = router;
