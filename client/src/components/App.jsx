@@ -8,7 +8,7 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      productId: ''
+      productId: 1
     }
     //bind functions here
     this.loadPage = this.loadPage.bind(this);
@@ -27,15 +27,15 @@ export default class App extends Component {
 
   loadPage() {
     axios
-      .get('/')
-      .then((data) => {console.log(`loaded get ${data}`)})
+      .get('/get')
+      .then((data) => {console.log(`loaded get ${JSON.stringify(data)}`)})
       .catch((err) => {console.log(`failed load get`)})
   }
 
   //create functions heree
   render(){
     return(
-      <div>
+      <div className="app">
         <Title />
         <Reviews />
       </div>

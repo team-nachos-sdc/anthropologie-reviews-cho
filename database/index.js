@@ -5,9 +5,10 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   //we're connected
+  console.log('connected to mongoose')
 })
 //schema
-var ProductModel = mongoose.model('ProductMod', {
+var productSchema = new mongoose.Schema({
   product_id: String,
   product_category: String,
   reviews: [{
@@ -28,6 +29,9 @@ var ProductModel = mongoose.model('ProductMod', {
   }],
 })
 
+var Product = mongoose.model('productmods', productSchema);
 
-module.exports = ProductModel;
+
+
+module.exports = Product;
 
