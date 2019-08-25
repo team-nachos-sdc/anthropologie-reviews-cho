@@ -1,0 +1,11 @@
+h3 {
+  font-size: 1.17em
+}
+.app { /*bg color of entire app body*/
+  background-color: #fdfdf9;
+  font-size: 15px
+}
+.title {
+  color: #26262c;
+  font: 12px "Avenir LT W02 65 Medium",sans-serif;
+}

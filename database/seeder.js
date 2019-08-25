@@ -59,8 +59,8 @@ var MakeProducts = () => {
     var newProduct = new Product(i);
     var reviewCount = newProduct.makeReviewCount();
     newProduct.reviews = [];
-    var review = {};
     for(var j = 0; j < reviewCount; j++){
+      var review = {};
       if(i < 76){
         review.body_type = newProduct.makeBody_type();
         review.height = newProduct.makeHeight().toString();
