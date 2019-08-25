@@ -3,6 +3,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import Title from './Title.jsx';
 import Reviews from './Reviews.jsx';
+import Summary from './Summary.jsx';
 
 export default class App extends Component {
   constructor(props){
@@ -50,6 +51,7 @@ export default class App extends Component {
         Straight <br/>
         These fit really well
         <Title />
+        <Summary />
         <Reviews />
         {JSON.stringify(this.state.productReviews)}
       </div>
