@@ -1,11 +1,29 @@
-h3 {
-  font-size: 1.17em
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font';
+    src: url('./AvenirLTStd-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-.app { /*bg color of entire app body*/
-  background-color: #fdfdf9;
-  font-size: 15px
+
+@media only screen and (max-width: 600px) {
+  .title {
+    text-align: left;
+  }
 }
-.title {
+@media only screen and (min-width: 601px) {
+  .title {
+    text-align: center;
+  }
+}
+body {
   color: #26262c;
-  font: 12px "Avenir LT W02 65 Medium",sans-serif;
+  font: 13px "Avenir-Font", sans-serif;
+  background-color: #fdfdf9; 
+  letter-spacing: 0.75px;
+}
+
+.title {
+    font-weight: 548;
+    font-stretch: ultra-condensed;
+    font-size: 140%;
 }

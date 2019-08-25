@@ -47,6 +47,8 @@ export default class App extends Component {
   render(){
     return(
       <div className="app">
+        Straight <br/>
+        These fit really well
         <Title />
         <Reviews />
         {JSON.stringify(this.state.productReviews)}
