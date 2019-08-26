@@ -51,7 +51,7 @@ table {
     font-style: normal;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 710px) {
   .title {
     text-align: left;
   }
@@ -60,7 +60,7 @@ table {
     width: 100%
   }
 }
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 711px) {
   .title {
     text-align: center;
   }
@@ -74,12 +74,12 @@ body {
   font: 13px "Avenir-Font", sans-serif;
   background-color: #fdfdf9; 
   letter-spacing: 0.75px;
+  margin: 30px
 }
 
 .title {
-    font-weight: 548;
-    font-stretch: ultra-condensed;
-    font-size: 140%;
+    font-weight: 540;
+    font-size: 135%;
 }
 
 .flex-container {
@@ -93,5 +93,4 @@ body {
 .summary-container {
   text-align: center;
   padding: 20px;
-  margin: 20px;
 }

@@ -1,8 +1,8 @@
 //import ProductModel from './index.js'; NOT USING THIS
 const ProductModel = require('./index.js');
 
-const getReviews = () => {
-  return ProductModel.find({})
+const getReviews = (productId) => {
+  return ProductModel.find({product_id: productId})
 } //grabs the product reviews
 
 const getAllReviews = () => {

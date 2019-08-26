@@ -5,9 +5,16 @@ const getAll = (req, res) => {
     .then(data => res.status(200).send(data))
     .catch(err => console.log(`error: ${err}`))
 }
-
+const getOne = (req, res) => {
+  let { productId } = req.params;
+  Products.find({product_id: '1'})
+  .then((data)=> {res.status(200).send(data)})
+    // .then(data => res.status(200).send(data))
+    .catch(err => console.log(`error: ${err}`))
+}
 module.exports = {
-  getAll
+  getAll,
+  getOne
 };
 // const { 
 //   getReviews,

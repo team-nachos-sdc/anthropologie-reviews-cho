@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router();
 const {
-  getAll
+  getAll,
+  getOne
 } = require('./controller.js');
 
 // router
@@ -11,6 +12,10 @@ const {
 router
   .route('/getAll')
   .get(getAll)
+
+router
+  .route('/getOne/:productId')
+  .get(getOne)
 
 module.exports = router;
 
