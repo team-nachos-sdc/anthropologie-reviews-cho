@@ -9,7 +9,7 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      productId: 1,
+      productId: 2,
       allProductReviews: [],
       productReviews: []
     }
@@ -23,9 +23,9 @@ export default class App extends Component {
   }
 
   loadPage() {
-    axios
+    axios //gets specified product's reviews
       .get(`/api/getOne/productId=${this.state.productId}`)
-      .then((data) => {this.setState({productReviews: data.data})})
+      .then((data) => {this.setState({productReviews: data.data[0].reviews})})
       .catch((err) => {console.log(`failed load get`)})
   }
 
@@ -34,9 +34,9 @@ export default class App extends Component {
     return(
       <div className="app">
         <Title />
-        {/* <Summary /> */}
+        <Summary productReviews={this.state.productReviews}/>
         <Reviews />
-        {JSON.stringify(this.state.productReviews)}
+        {/* {JSON.stringify(this.state.productReviews)} */}
       </div>
     )
   }

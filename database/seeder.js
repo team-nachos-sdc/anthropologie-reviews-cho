@@ -46,11 +46,11 @@ Product.prototype.makeBody_type = function() {return getRandomItem(body_type)};
 Product.prototype.makeHeight = function() {return `${randomGen(6,4)}'${randomGen(12,1) - 1}"`};
 Product.prototype.makeTitle = function() {return faker.lorem.sentence(randomGen(10,3))};
 Product.prototype.makeReview = function() {return faker.lorem.sentences(randomGen(10,3))};
-Product.prototype.makeFits = function() {return this.review > 3 ? true : false};
+Product.prototype.makeFits = function(rating) {return rating > 3 ? true : false};
 Product.prototype.makeFit_purchased = function() {return getRandomItem(fit_purchased)};
 Product.prototype.makeSize_purchased = function() {return this.fits ? this.fit_purchased : this.category === 'pants' ? getRandomItem(size_purchased_pants) : getRandomItem(size_purchased)};
 Product.prototype.makeSize = function() {return this.size_purchased};
-Product.prototype.makeRecommends = function() {return this.review > 3 ? true : false};
+Product.prototype.makeRecommends = function(rating) {return rating > 3 ? true : false};
 Product.prototype.makeDate = function() {return faker.date.past(randomGen(3,0))};
 
 var MakeProducts = () => {
@@ -71,11 +71,11 @@ var MakeProducts = () => {
       review.rating = newProduct.makeRating();
       review.title = newProduct.makeTitle();
       review.review = newProduct.makeReview();
-      review.fits = newProduct.makeFits();
+      review.fits = newProduct.makeFits(review.rating);
       review.fit_purchased = newProduct.makeFit_purchased();
       review.size_purchased = newProduct.makeSize_purchased();
       review.size = newProduct.makeSize();
-      review.recommends = newProduct.makeRecommends();
+      review.recommends = newProduct.makeRecommends(review.rating);
       review.date = dateFormatter(newProduct.makeDate());
       newProduct.reviews.push(review);
     }
@@ -85,11 +85,11 @@ var MakeProducts = () => {
 }
 
 
-// var seedDatabase = function(data) {
-//   ProductModel.insertMany(data, function(err, resp) {
-//     if(err) {console.log(`error: ${err}`)}
-//     else {console.log(`response: ${resp}`)}
-//   })
-// }
+var seedDatabase = function(data) {
+  ProductModel.insertMany(data, function(err, resp) {
+    if(err) {console.log(`error: ${err}`)}
+    else {console.log(`response: ${resp}`)}
+  })
+}
 
-// seedDatabase(MakeProducts());
+seedDatabase(MakeProducts());
