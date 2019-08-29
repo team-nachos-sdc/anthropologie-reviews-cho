@@ -55,17 +55,19 @@ table {
   .title {
     text-align: left;
   }
+  .flex-container {
+    /* flex-flow: row nowrap; */
+    flex-direction: column
+  }
   .summary-container {
     display: block;
-    width: 100%
+    width: 100%;
+    /* flex-flow: row nowrap; */
   }
 }
 @media only screen and (min-width: 711px) {
   .title {
     text-align: center;
-  }
-  .summary-container {
-    width: 20%
   }
 }
 
@@ -82,15 +84,28 @@ body {
     font-size: 135%;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  flex-flow: row wrap;
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'stars recs fit'
+  'user user user'
 }
 
 .summary-container {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  margin: 2px;
+  background-color: rgba(242,240,235,.5);
+}
+.average_stars {
+  grid-area: stars;
+}
+.average_recs {
+  grid-area: recs;
+}
+.average_fit {
+  grid-area: fit;
+}
+.review_user {
+  grid-area: user;
 }

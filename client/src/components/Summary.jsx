@@ -7,19 +7,17 @@ const Summary = (props) => {
   const totalRatings = reviews.reduce((sum, review) => {
     return sum + review.rating
   }, 0);
-  const totalRecommends = reviews.filter((review) => {
-    return review.recommends === true
-  }).length
+  const totalRecommends = reviews.filter((review) => {return review.recommends}).length
   const averageRating = (totalRatings/count).toFixed(1);
   const averageRecommends =`${(totalRecommends/count)*100}%`;
   return (
-    <div className="flex-container">
-      <div className="summary-container">
+    <div className="grid-container">
+      <div className="summary-container stars">
         <StarSummary average={averageRating} count={count}/>
       </div>
-      <div className="summary-container">{averageRecommends} Recommended</div>
-      <div className="summary-container">Customers Say Average</div>
-      {JSON.stringify(props.productReviews)}
+      <div className="summary-container recs">{averageRecommends} Recommended</div>
+      <div className="summary-container fit">Customers Say Average</div>
+      {/* {JSON.stringify(props.productReviews)} */}
     </div>
   )
 }

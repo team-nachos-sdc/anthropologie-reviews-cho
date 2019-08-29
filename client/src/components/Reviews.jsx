@@ -12,7 +12,7 @@ export default class Reviews extends Component {
   //functions here
   render() {
     return(
-      <div>
+      <div className="review_user">
         Reviews Component is rendering properly
       </div>
     )
