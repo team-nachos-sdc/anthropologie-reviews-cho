@@ -13,10 +13,14 @@ const Summary = (props) => {
   return (
     <div className="grid-container">
       <div className="summary-container stars">
-        <StarSummary average={averageRating} count={count}/>
+        <div className="content"><StarSummary average={averageRating} count={count}/></div>
       </div>
-      <div className="summary-container recs">{averageRecommends} Recommended</div>
-      <div className="summary-container fit">Customers Say Average</div>
+      <div className="summary-container recs">
+        <div className="content">{averageRecommends} Recommended</div>
+      </div>
+      <div className="summary-container fit">
+        <div className="content">Customers Say Average</div>
+      </div>
       {/* {JSON.stringify(props.productReviews)} */}
     </div>
   )
