@@ -85,11 +85,11 @@ var MakeProducts = () => {
 }
 
 
-var seedDatabase = function(data) {
-  ProductModel.insertMany(data, function(err, resp) {
-    if(err) {console.log(`error: ${err}`)}
-    else {console.log(`response: `)}
-  })
-}
+// var seedDatabase = function(data) {
+//   ProductModel.insertMany(data, function(err, resp) {
+//     if(err) {console.log(`error: ${err}`)}
+//     else {console.log(`response: `)}
+//   })
+// }
 
-seedDatabase(MakeProducts());
+// seedDatabase(MakeProducts());

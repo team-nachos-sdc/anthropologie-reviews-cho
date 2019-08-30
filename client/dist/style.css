@@ -77,11 +77,12 @@ table {
       'reviews-component reviews-component reviews-component'
       /* 'user review review'; */
   }
-  .reviews-grid-container {
-    /* grid-template-columns: auto auto auto; */
+  /* .reviews-grid-container {
+    grid-template-columns: auto auto auto;
     grid-template-areas:
     'user review review'
-  }
+    'review review review'
+  } */
 }
 
 body {
@@ -99,10 +100,10 @@ body {
 .grid-container {
   display: grid;
 }
-.reviews-grid-container {
+/* .reviews-grid-container {
   display: grid;
   grid-area: reviews-component
-}
+} */
 .summary-container {
   text-align: center;
   padding: 30px;
@@ -121,6 +122,9 @@ body {
 }
 .average_fit {
   grid-area: fit;
+}
+.reviews_component {
+  grid-area: reviews-component
 }
 .review_user {
   grid-area: user;

@@ -13,12 +13,9 @@ export default class Reviews extends Component {
   //functions here
   render() {
     return(
-      <div>
-        Reviews Component is rendering properly
-        {this.props.productReviews.map((review, item) => {
-          return <div key={item}><Review review={review}/></div>
-        })}
-      </div>
+      this.props.productReviews.map((review, item) => {
+        return <Review review={review} key={item}/>
+      })
     )
   }
 

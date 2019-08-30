@@ -23,7 +23,7 @@ const Summary = (props) => {
         <div className="content">Customers Say Average</div>
       </div>
       <div className="review_pag">pagination  1/1 > </div>
-      <div className="reviews-grid-container"><Reviews productReviews={props.productReviews}/></div>
+      <div className="reviews_component"><Reviews productReviews={props.productReviews}/></div>
       {/* {JSON.stringify(props.productReviews)} */}
     </div>
   )

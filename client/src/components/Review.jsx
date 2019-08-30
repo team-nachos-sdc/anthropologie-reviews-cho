@@ -13,14 +13,17 @@ export default class Review extends Component {
   render() {
     const { review } = this.props;
     return(
-      <div className="reviews-grid-container">
+      <div>
         <div className="review_user">
-          {/* {review.} */}
-        {JSON.stringify(review)}
+          <div>{review.username}</div>
+          <div>{review.location}</div>
+          <div>{review.age}</div>
+          <div>{review.bodyType}</div>
+          <div>{review.height}</div>
         </div>
-        {/* <div className="review_review"> */}
+        <div className="review_review">
           Review Detail Component
-        {/* </div> */}
+        </div>
       </div>
     )
   }
