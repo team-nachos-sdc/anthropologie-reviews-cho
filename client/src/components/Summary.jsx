@@ -13,17 +13,17 @@ const Summary = (props) => {
   const averageRecommends =`${(totalRecommends/count)*100}%`;
   return (
     <div className="grid-container">
-      <div className="summary-container stars">
+      <div className="summary-container average_stars">
         <div className="content"><StarSummary average={averageRating} count={count}/></div>
       </div>
-      <div className="summary-container recs">
+      <div className="summary-container average_recs">
         <div className="content">{averageRecommends} Recommended</div>
       </div>
-      <div className="summary-container fit">
+      <div className="summary-container average_fit">
         <div className="content">Customers Say Average</div>
       </div>
-      <div className="pag">pagination</div>
-      <Reviews productReviews={props.productReviews}/>
+      <div className="review_pag">pagination  1/1 > </div>
+      <div className="reviews-grid-container"><Reviews productReviews={props.productReviews}/></div>
       {/* {JSON.stringify(props.productReviews)} */}
     </div>
   )

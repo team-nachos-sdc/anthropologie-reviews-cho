@@ -74,7 +74,8 @@ table {
     grid-template-areas:
       'stars recs fit'
       'pag pag pag'
-      'user review review';
+      'reviews-component reviews-component reviews-component'
+      /* 'user review review'; */
   }
 }
 
@@ -92,6 +93,10 @@ body {
 }
 .grid-container {
   display: grid;
+}
+.reviews-grid-container {
+  display: grid;
+  grid-area: reviews-component;
 }
 .summary-container {
   text-align: center;
@@ -117,6 +122,7 @@ body {
 }
 .review_pag {
   grid-area: pag;
+  text-align: right;
 }
 .review_review {
   grid-area: review;

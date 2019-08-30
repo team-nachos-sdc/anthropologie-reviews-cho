@@ -13,7 +13,9 @@ export default class Review extends Component {
   render() {
     return(
       <div>
-        {JSON.stringify(this.props.review)}}
+        <div>
+        {JSON.stringify(this.props.review)}
+        </div>
       </div>
     )
   }
