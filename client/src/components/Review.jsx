@@ -13,15 +13,15 @@ export default class Review extends Component {
   render() {
     const { review } = this.props;
     return(
-      <div>
-        <div className="review_user">
+      <div className="reviews-grid-container">
+        <div className="reviews-container review_user">
           <div>{review.username}</div>
           <div>{review.location}</div>
           <div>{review.age}</div>
           <div>{review.bodyType}</div>
           <div>{review.height}</div>
         </div>
-        <div className="review_review">
+        <div className="reviews-container review_review">
           Review Detail Component
         </div>
       </div>

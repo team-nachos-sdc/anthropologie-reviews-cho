@@ -72,17 +72,16 @@ table {
   .grid-container {
     grid-template-columns: auto auto auto;
     grid-template-areas:
-      'stars recs fit'
-      'pag pag pag'
-      'reviews-component reviews-component reviews-component'
+      'average_stars average_recs average_fit'
+      'review_pag review_pag review_pag'
+      'reviews_component reviews_component reviews_component'
       /* 'user review review'; */
   }
-  /* .reviews-grid-container {
+  .reviews-grid-container {
     grid-template-columns: auto auto auto;
     grid-template-areas:
-    'user review review'
-    'review review review'
-  } */
+    'review_user review_review review_review'
+  }
 }
 
 body {
@@ -97,42 +96,41 @@ body {
     font-weight: 540;
     font-size: 135%;
 }
-.grid-container {
-  display: grid;
-}
-/* .reviews-grid-container {
-  display: grid;
-  grid-area: reviews-component
-} */
+.grid-container { display: grid;}
+.reviews-grid-container { 
+  display: grid; 
+  }
+
 .summary-container {
   text-align: center;
   padding: 30px;
   margin: 2px;
   background-color: rgba(242,240,235,.5);
 }
+.reviews-container {
+  margin: 2px;
+  padding: 10px
+}
 .content {
   width: 160px;
   margin: auto;
 }
-.average_stars {
-  grid-area: stars;
+.average_stars { grid-area: average_stars; }
+.average_recs { grid-area: average_recs; }
+.average_fit { grid-area: average_fit; }
+.reviews_component { 
+  grid-area: reviews_component;
+  display: block  
 }
-.average_recs {
-  grid-area: recs;
+.review_user { 
+  grid-area: review_user; 
+  width: 19em
 }
-.average_fit {
-  grid-area: fit;
-}
-.reviews_component {
-  grid-area: reviews-component
-}
-.review_user {
-  grid-area: user;
+.review_review { 
+  grid-area: review_review ;
+  width: 40em
 }
 .review_pag {
-  grid-area: pag;
+  grid-area: review_pag;
   text-align: right;
-}
-.review_review {
-  grid-area: review;
 }
