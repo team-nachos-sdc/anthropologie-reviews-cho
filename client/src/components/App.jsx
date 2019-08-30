@@ -34,7 +34,7 @@ export default class App extends Component {
       <div className="app">
         <Title />
         <Summary productReviews={this.state.productReviews}/>
-        {/* {JSON.stringify(this.state.productReviews)} */}
+        {JSON.stringify(this.state.productReviews)}
       </div>
     )
   }

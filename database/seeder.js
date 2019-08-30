@@ -65,7 +65,7 @@ var MakeProducts = () => {
         review.body_type = newProduct.makeBody_type();
         review.height = newProduct.makeHeight().toString();
       }
-      review.userName = newProduct.makeUsername();
+      review.username = newProduct.makeUsername();
       review.location = newProduct.makeLocation();
       review.age = newProduct.makeAge();
       review.rating = newProduct.makeRating();
@@ -88,7 +88,7 @@ var MakeProducts = () => {
 var seedDatabase = function(data) {
   ProductModel.insertMany(data, function(err, resp) {
     if(err) {console.log(`error: ${err}`)}
-    else {console.log(`response: ${resp}`)}
+    else {console.log(`response: `)}
   })
 }
 

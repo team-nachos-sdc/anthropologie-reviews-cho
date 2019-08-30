@@ -31,6 +31,10 @@ var productSchema = new mongoose.Schema({
 
 var Product = mongoose.model('productmods', productSchema);
 
+// db.dropCollection('productmods', (err, resp) => {
+//   if(err) {console.log(err)}
+//   else console.log(resp)
+// })
 
 module.exports = Product;
 
