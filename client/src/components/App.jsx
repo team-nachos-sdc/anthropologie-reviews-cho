@@ -34,26 +34,7 @@ export default class App extends Component {
       <div className="app">
         <Title />
         <Summary productReviews={this.state.productReviews}/>
-        {JSON.stringify(this.state.productReviews)}
       </div>
     )
   }
-  /*
-    When page loads, check URL param for productId
-    When page loads, make get request based on what is in productId
-  */
-  // getProductReviews(productId) {
-  //   productId = productId.toString(); //in case value is passed as number
-  //   const allProductReviews = this.state.allProductReviews;
-  //   const productReviews = allProductReviews.filter((productReviews) => {
-  //     return productReviews.product_id === productId
-  //   });
-  //   this.setState({ //set state and grabs record object
-  //     productReviews: productReviews[0]
-  //   })
-  // }
-
-  // getProductReviews(productId) {
-  //   ax
-  // }
 }

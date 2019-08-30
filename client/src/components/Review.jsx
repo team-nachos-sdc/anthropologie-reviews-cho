@@ -16,13 +16,20 @@ export default class Review extends Component {
       <div className="reviews-grid-container">
         <div className="reviews-container review_user">
           <div>{review.username}</div>
-          <div>{review.location}</div>
-          <div>{review.age}</div>
-          <div>{review.bodyType}</div>
-          <div>{review.height}</div>
+          <div><span>Location:</span><span>{review.location}</span></div>
+          <div><span>Age:</span><span>{review.age}</span></div>
+          <div><span>Body Type:</span><span>{review.bodyType}</span></div>
+          <div><span>Height:</span><span>{review.height}</span></div>
         </div>
         <div className="reviews-container review_review">
-          Review Detail Component
+          <div><span>{review.title}</span></div>
+          <div><span>{review.review}</span></div>
+          <div><span>Fits:</span><span>{review.fits}</span></div>
+          <div><span>Fit Purchased:</span><span>{review.fit_purchased}</span></div>
+          <div><span>Size Purchased:</span><span>{review.size_purchased}</span></div>
+          <div><span>Size Normally Worn:</span><span>{review.size}</span></div>
+          <div><span>{review.recommends}</span></div>
+
         </div>
       </div>
     )
