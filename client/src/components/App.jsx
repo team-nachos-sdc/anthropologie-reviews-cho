@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
 import Title from './Title.jsx';
-import Reviews from './Reviews.jsx';
 import Summary from './Summary.jsx';
 
 export default class App extends Component {
@@ -35,7 +34,6 @@ export default class App extends Component {
       <div className="app">
         <Title />
         <Summary productReviews={this.state.productReviews}/>
-        <Reviews />
         {/* {JSON.stringify(this.state.productReviews)} */}
       </div>
     )

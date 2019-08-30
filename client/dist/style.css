@@ -63,7 +63,6 @@ table {
   }
   .summary-container {
     display: block;
-    /* width: 100% */
   }
 }
 @media only screen and (min-width: 711px) {
@@ -74,7 +73,8 @@ table {
     grid-template-columns: auto auto auto;
     grid-template-areas:
       'stars recs fit'
-      'user user user'
+      'pag pag pag'
+      'user review review';
   }
 }
 
@@ -114,4 +114,10 @@ body {
 }
 .review_user {
   grid-area: user;
+}
+.review_pag {
+  grid-area: pag;
+}
+.review_review {
+  grid-area: review;
 }

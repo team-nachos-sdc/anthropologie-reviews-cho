@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StarSummary from './StarSummary.jsx';
+import Reviews from './Reviews.jsx';
 
 const Summary = (props) => {
   const reviews = props.productReviews;
@@ -21,6 +22,8 @@ const Summary = (props) => {
       <div className="summary-container fit">
         <div className="content">Customers Say Average</div>
       </div>
+      <div className="pag">pagination</div>
+      <Reviews productReviews={props.productReviews}/>
       {/* {JSON.stringify(props.productReviews)} */}
     </div>
   )

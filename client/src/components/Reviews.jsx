@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Review from './Review.jsx';
 
 export default class Reviews extends Component {
   constructor(props) {
@@ -12,8 +13,11 @@ export default class Reviews extends Component {
   //functions here
   render() {
     return(
-      <div className="review_user">
+      <div>
         Reviews Component is rendering properly
+        {this.props.productReviews.map((review, i) => {
+          return <div><Review review={review} key={i}/></div>
+        })}
       </div>
     )
   }
