@@ -1,7 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
-import Title from './Title.jsx';
 import Summary from './Summary.jsx';
 
 export default class App extends Component {
@@ -53,10 +52,10 @@ export default class App extends Component {
   render(){
     const {productReviews, count, averageRating, averageRecommends} = this.state;
     return(
-      <div className="app">
-        <Title />
+      <React.Fragment>
+        <h3 className='title'>Ratings & Reviews</h3>
         <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating}/>
-      </div>
+      </React.Fragment>
     )
   }
 }
