@@ -48,8 +48,16 @@ Product.prototype.makeTitle = function() {return faker.lorem.sentence(randomGen(
 Product.prototype.makeReview = function() {return faker.lorem.sentences(randomGen(10,3))};
 Product.prototype.makeFits = function(rating) {return rating > 3 ? true : false};
 Product.prototype.makeFit_purchased = function() {return getRandomItem(fit_purchased)};
-Product.prototype.makeSize_purchased = function() {return this.fits ? this.fit_purchased : this.category === 'pants' ? getRandomItem(size_purchased_pants) : getRandomItem(size_purchased)};
-Product.prototype.makeSize = function() {return this.size_purchased};
+Product.prototype.makeSize_purchased = function() {
+  if(this.category === 'pants') {
+    return this.fits ? this.size_purchased : getRandomItem(size_purchased_pants)
+  } else {
+    return this.fits ? this.size_purchased : getRandomItem(size_purchased)
+  }
+}
+  // return this.fits ? this.fit_purchased : this.category === 'pants' ? getRandomItem(size_purchased_pants) : getRandomItem(size_purchased)};
+Product.prototype.makeSize = function() {
+  return this.category === 'pants' ? this.fits ? this.size_purchased : getRandomItem(size_purchased_pants) : getRandomItem(size_purchased)};
 Product.prototype.makeRecommends = function(rating) {return rating > 3 ? true : false};
 Product.prototype.makeDate = function() {return faker.date.past(randomGen(3,0))};
 
@@ -65,6 +73,7 @@ var MakeProducts = () => {
         review.body_type = newProduct.makeBody_type();
         review.height = newProduct.makeHeight().toString();
       }
+      review.category = newProduct.makeCategory();
       review.username = newProduct.makeUsername();
       review.location = newProduct.makeLocation();
       review.age = newProduct.makeAge();
@@ -74,7 +83,13 @@ var MakeProducts = () => {
       review.fits = newProduct.makeFits(review.rating);
       review.fit_purchased = newProduct.makeFit_purchased();
       review.size_purchased = newProduct.makeSize_purchased();
-      review.size = newProduct.makeSize();
+      review.size = (function() {  
+        if(this.category === 'pants') {
+          return this.fits ? this.size_purchased : getRandomItem(size_purchased_pants)
+        } else {
+          return this.fits ? this.size_purchased : getRandomItem(size_purchased)
+        }
+      })();
       review.recommends = newProduct.makeRecommends(review.rating);
       review.date = dateFormatter(newProduct.makeDate());
       newProduct.reviews.push(review);

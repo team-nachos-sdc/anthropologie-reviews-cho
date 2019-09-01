@@ -18,7 +18,7 @@ export default class Review extends Component {
           <div><span className="bold1">{review.username}</span></div>
           <div><span className="bold1">Location:</span><span>{review.location}</span></div>
           <div><span className="bold1">Age:</span><span>{review.age}</span></div>
-          <div><span className="bold1">Body Type:</span><span>{review.bodyType}</span></div>
+          <div><span className="bold1">Body Type:</span><span>{review.body_type}</span></div>
           <div><span className="bold1">Height:</span><span>{review.height}</span></div>
         </div>
         <div className="reviews-container review_review">
