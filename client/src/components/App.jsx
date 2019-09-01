@@ -7,7 +7,6 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      // productId: '',
       productReviews: [],
       count: 0,
       averageRating: 0,
@@ -16,8 +15,6 @@ export default class App extends Component {
     //bind functions here
     this.loadPage = this.loadPage.bind(this);
     this.calculateAverages = this.calculateAverages.bind(this);
-    // this.generateRandomProductId = this.generateRandomProductId.bind(this);
-    // this.getProductReviews = this.getProductReviews.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +28,7 @@ export default class App extends Component {
     axios //gets specified product's reviews
       .get(`/api/getOne/${randomProductId}`)
       .then((data) => {this.setState({productReviews: data.data[0].reviews})})
-      .then(() => {this.calculateAverages()})
+      .then(() => {this.calculateAverages()}) //after grabbing reviews, get all calculations 
       .catch((err) => {console.log(`failed load get`)})
   }
 
@@ -44,7 +41,7 @@ export default class App extends Component {
     this.setState({
       count: productReviews.length,
       averageRating: (totalRatings/productReviews.length).toFixed(1),
-      averageRecommends:`${(totalRecommends/productReviews.length)*100}%`
+      averageRecommends:`${Math.round((totalRecommends/productReviews.length)*100)}%`
     })
   }
 
