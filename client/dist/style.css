@@ -134,3 +134,28 @@ body {
   grid-area: review_pag;
   text-align: right;
 }
+.bold1 {
+  font-weight: 700;
+}
+.stars {
+  background-image: url(/gold_star.svg);
+  background-position-x: left;
+  background-position-y: center;
+  background-size: 16px;
+  height: 16px;
+}
+.oneStar {
+  width: 16px;
+}
+.twoStar {
+  width: 32px;
+}
+.threeStar {
+  width: 48px;
+}
+.fourStar {
+  width: 64px;
+}
+.fiveStar {
+  width: 80px;
+}

@@ -21,6 +21,7 @@ export default class App extends Component {
     this.loadPage();
   }
 
+  
   loadPage() {
     axios //gets specified product's reviews
       .get(`/api/getOne/productId=${this.state.productId}`)
