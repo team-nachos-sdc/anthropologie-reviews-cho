@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 const StarSummary = (props) => {
-  switch(props.average){
+  const average = props.average.length > 1 ? props.average[0] + '.0' : props.average
+  switch(average){
     case '1.0':
       return(
         <div>
@@ -40,7 +41,7 @@ const StarSummary = (props) => {
     default:
       return(
         <div>
-          ''
+          {`'' ${JSON.stringify(props)}`}
         </div>  
       ); 
   }

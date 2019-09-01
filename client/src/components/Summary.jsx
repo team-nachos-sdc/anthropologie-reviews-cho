@@ -3,15 +3,8 @@ import StarSummary from './StarSummary.jsx';
 import Reviews from './Reviews.jsx';
 
 const Summary = (props) => {
-  const reviews = props.productReviews;
-  const count = reviews.length;
-  const totalRatings = reviews.reduce((sum, review) => {
-    return sum + review.rating
-  }, 0);
-  const totalRecommends = reviews.filter((review) => {return review.recommends}).length
-  const averageRating = (totalRatings/count).toFixed(1);
-  const averageRecommends =`${(totalRecommends/count)*100}%`;
-  return (
+  const {averageRating, averageRecommends, count, productReviews} = props;
+  return(
     <div className="grid-container">
       <div className="summary-container average_stars">
         <div className="content"><StarSummary average={averageRating} count={count}/></div>
@@ -23,10 +16,9 @@ const Summary = (props) => {
         <div className="content">Customers Say Average</div>
       </div>
       <div className="review_pag">pagination  1/1 > </div>
-      <div className="reviews_component"><Reviews productReviews={props.productReviews}/></div>
-      {/* {JSON.stringify(props.productReviews)} */}
+      <div className="reviews_component"><Reviews productReviews={productReviews}/></div>
     </div>
   )
 }
 
-export default Summary;
+export default Summary
