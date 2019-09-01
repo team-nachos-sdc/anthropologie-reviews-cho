@@ -7,9 +7,8 @@ const getAll = (req, res) => {
 }
 const getOne = (req, res) => {
   let { productId } = req.params;
-  Products.find({product_id: '2'})
-  .then((data)=> {res.status(200).send(data)})
-    // .then(data => res.status(200).send(data))
+  Products.find({product_id: productId.toString()})
+    .then((data)=> {res.status(200).send(data)})
     .catch(err => console.log(`error: ${err}`))
 }
 module.exports = {

@@ -8,23 +8,30 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      productId: 2,
-      allProductReviews: [],
+      // productId: '',
       productReviews: []
     }
     //bind functions here
     this.loadPage = this.loadPage.bind(this);
+    this.generateRandomProductId = this.generateRandomProductId.bind(this);
     // this.getProductReviews = this.getProductReviews.bind(this);
   }
 
   componentDidMount() {
-    this.loadPage();
+    this.generateRandomProductId();
+    // this.loadPage();
   }
 
+  generateRandomProductId() {
+    const max = 100;
+    const min = 1;
+    const productId = Math.floor(Math.random() * (max - min + 1)) + min;
+    this.loadPage(productId);
+  }
   
-  loadPage() {
+  loadPage(productId) {
     axios //gets specified product's reviews
-      .get(`/api/getOne/productId=${this.state.productId}`)
+      .get(`/api/getOne/${productId}`)
       .then((data) => {this.setState({productReviews: data.data[0].reviews})})
       .catch((err) => {console.log(`failed load get`)})
   }
