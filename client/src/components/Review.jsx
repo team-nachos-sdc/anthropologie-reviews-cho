@@ -33,11 +33,11 @@ export default class Review extends Component {
       return(
         <div className="reviews-grid-container">
           <div className="reviews-container review_user">
-            <div className="bold1"><span className="bold1">{review.username}</span></div>
-            <div>Location: <span>{review.location}</span></div>
-            <div className="bold1"><span className="bold1">Age: </span><span>{review.age}</span></div>
-            <div className="bold1"><span className="bold1">Body Type: </span><span>{review.body_type}</span></div>
-            <div className="bold1"><span className="bold1">Height: </span><span>{review.height}</span></div>
+            <div>{review.username}</div>
+            <div>Location: <span className="light">{review.location}</span></div>
+            <div>Age: <span className="light">{review.age}</span></div>
+            <div>Body Type: <span className="light">{review.body_type}</span></div>
+            <div>Height: <span className="light">{review.height}</span></div>
           </div>
           <div className="reviews-container review_review">
             <div><span>{review.title}</span></div>
