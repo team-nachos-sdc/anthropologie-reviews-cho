@@ -5,37 +5,29 @@ const StarRating = (props) => {
     case 1:
       return(
         <React.Fragment>
-          <div className='starGroup'>
             <div className='stars goldstars oneStar'></div>
             <div className='stars graystars fourStar'></div>
-          </div>
         </React.Fragment>          
       );
     case 2:
       return(
         <React.Fragment>
-            <div className='starGroup'>
             <div className='stars goldstars twoStar'></div>
             <div className='stars graystars threeStar'></div>
-            </div>
         </React.Fragment>          
         );
     case 3:
       return(
         <React.Fragment>
-            <div className='starGroup'>
             <div className='stars goldstars threeStar'></div>
             <div className='stars graystars twoStar'></div>
-            </div>
         </React.Fragment>          
         );
     case 4:
       return(
         <React.Fragment>
-            <div className='starGroup'>
             <div className='stars goldstars fourStar'></div>
             <div className='stars graystars oneStar'></div>
-            </div>
           </React.Fragment>          
         );
     case 5:

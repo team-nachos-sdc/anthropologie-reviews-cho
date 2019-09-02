@@ -124,6 +124,7 @@ body {
 .title {
     font-weight: 540;
     font-size: 135%;
+    padding: 0 0 15px 0;
 }
 .reviewTitle {
   font: 17px 'Avenir-Font-LightOblique', sans-serif;
@@ -161,7 +162,8 @@ body {
 }
 .review_user { 
   grid-area: review_user; 
-  width: 19em
+  width: 19em;
+  padding: 10px 0 0 0
 }
 .review_review { 
   grid-area: review_review ;
