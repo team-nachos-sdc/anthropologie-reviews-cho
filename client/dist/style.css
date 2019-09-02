@@ -112,7 +112,7 @@ body {
   padding: 10px
 }
 .content {
-  width: 160px;
+  width: 180px;
   margin: auto;
 }
 .average_stars { grid-area: average_stars; }
