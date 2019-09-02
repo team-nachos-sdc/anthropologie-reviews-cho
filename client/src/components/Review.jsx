@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import StarSummary from './StarSummary.jsx';
+import StarRating from './StarRating.jsx';
 
 export default class Review extends Component {
   constructor(props) {
@@ -16,15 +18,15 @@ export default class Review extends Component {
       return(
         <div className="reviews-grid-container">
           <div className="reviews-container review_user">
-            <div className="bold1"><span className="bold1">{review.username}</span></div>
-            <div className="bold1"><span className="bold1">Location:</span><span>{review.location}</span></div>
-            <div className="bold1"><span className="bold1">Age:</span><span>{review.age}</span></div>
+            <div>{review.username}</div>
+            <div>Location: <span className="light">{review.location}</span></div>
+            <div>Age: <span className="light">{review.age}</span></div>
           </div>
           <div className="reviews-container review_review">
-            <div><span>{review.title}</span></div>
-            <div><span>{review.review}</span></div>
-            <div><span>Fits:</span><span>{review.fits}</span></div>
-            <div><span>Size Purchased:</span><span>{review.size_purchased}</span></div>
+            <div><span className="reviewTitle">{review.title}</span></div>
+            <div><span className="light">{review.review}</span></div>
+            <div><span className="bold">Fits: </span><span className="light">{review.fits}</span></div>
+            <div><span className="bold">Size Purchased: </span><span className="light">{review.size_purchased}</span></div>
             <div><span>{review.recommends}</span></div>
           </div>
         </div>
@@ -40,6 +42,7 @@ export default class Review extends Component {
             <div>Height: <span className="light">{review.height}</span></div>
           </div>
           <div className="reviews-container review_review">
+            <div><StarRating rating={review.rating}/></div>
             <div><span className="reviewTitle">{review.title}</span></div>
             <div><span className="light">{review.review}</span></div>
             <div><span className="bold">Fits: </span><span className="light">{review.fits}</span></div>
