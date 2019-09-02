@@ -18,7 +18,7 @@ export default class Review extends Component {
       return(
         <div className="reviews-grid-container">
           <div className="reviews-container review_user">
-            <div>{review.username}</div>
+            <div className="starGroup">{review.username}</div>
             <div>Location: <span className="light">{review.location}</span></div>
             <div>Age: <span className="light">{review.age}</span></div>
           </div>
@@ -36,7 +36,7 @@ export default class Review extends Component {
       return(
         <div className="reviews-grid-container">
           <div className="reviews-container review_user">
-            <div>{review.username}</div>
+            <div className="starGroup">{review.username}</div>
             <div>Location: <span className="light">{review.location}</span></div>
             <div>Age: <span className="light">{review.age}</span></div>
             <div>Body Type: <span className="light">{review.body_type}</span></div>
