@@ -145,10 +145,8 @@ body {
   grid-area: review_pag;
   text-align: right;
 }
-.bold1 {
-  padding: 0 0 15px 0
-  /* color: blue; */
-  /* font-size: 11px; */
+div.reviews-container > div { /*select div children of div with class reviews-container*/
+  padding: 0 0 15px 0 
 }
 .stars {
   margin-left: auto;
