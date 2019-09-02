@@ -23,6 +23,7 @@ export default class Review extends Component {
             <div>Age: <span className="light">{review.age}</span></div>
           </div>
           <div className="reviews-container review_review">
+            <div><StarRating rating={review.rating}/></div>
             <div><span className="reviewTitle">{review.title}</span></div>
             <div><span className="light">{review.review}</span></div>
             <div><span className="bold">Fits: </span><span className="light">{review.fits}</span></div>
