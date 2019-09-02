@@ -137,8 +137,8 @@ body {
 .bold1 {
   font-weight: 700;
 }
-.stars {
-  background-image: url(/gold_star.svg);
+.goldstars {
+  background-image: url(/goldStar.svg);
   /* background-position-x: center; */
   /* background-position-y: center; */
   /* background-position: center; */
@@ -146,18 +146,38 @@ body {
   margin-right: auto;
   background-size: 16px;
   height: 16px;
+  display: inline-block
+}
+.graystars {
+  background-image: url(/grayStar.svg);
+  /* background-position-x: center; */
+  /* background-position-y: center; */
+  /* background-position: center; */
+  margin-left: auto;
+  margin-right: auto;
+  background-size: 16px;
+  height: 16px;
+  display: inline-block
 }
 .oneStar {
   width: 16px;
+  /* display: inline-block */
 }
 .twoStar {
   width: 32px;
+  /* display: inline-block */
+
+
 }
 .threeStar {
   width: 48px;
+  /* display: inline-block */
+
 }
 .fourStar {
   width: 64px;
+  /* display: inline-block */
+
 }
 .fiveStar {
   width: 80px;
