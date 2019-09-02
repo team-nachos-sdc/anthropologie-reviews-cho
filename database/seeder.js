@@ -36,7 +36,7 @@ var Product = function(product_id){
   this.product_id = product_id;
 }
 
-Product.prototype.makeCategory = function() {return this.product_id < 26 && this.product_id > 0 ? 'dress' : this.product_id > 25 && this.product_id < 51 ? 'pants' : this.product_id > 50 && this.product_id < 76 ? 'skirt' : 'bedding'}
+// Product.prototype.makeCategory = function() {return this.product_id < 26 && this.product_id > 0 ? 'dress' : this.product_id > 25 && this.product_id < 51 ? 'pants' : this.product_id > 50 && this.product_id < 76 ? 'skirt' : 'bedding'}
 Product.prototype.makeRating = function() {return randomGen(5, 1)};
 Product.prototype.makeReviewCount = function() {return randomGen(10, 5)};
 Product.prototype.makeUsername = function() {return faker.internet.userName()};
@@ -72,8 +72,9 @@ var MakeProducts = () => {
       if(i < 76){
         review.body_type = newProduct.makeBody_type();
         review.height = newProduct.makeHeight().toString();
+        review.fit_purchased = newProduct.makeFit_purchased();
       }
-      review.category = newProduct.makeCategory();
+      review.category = i >= 76 ? 'bedding' : i > 50 ? 'skirt' : i > 25 ? 'pants' : 'dresses';
       review.username = newProduct.makeUsername();
       review.location = newProduct.makeLocation();
       review.age = newProduct.makeAge();
@@ -81,7 +82,6 @@ var MakeProducts = () => {
       review.title = newProduct.makeTitle();
       review.review = newProduct.makeReview();
       review.fits = newProduct.makeFits(review.rating);
-      review.fit_purchased = newProduct.makeFit_purchased();
       review.size_purchased = newProduct.makeSize_purchased();
       review.size = (function() {  
         if(this.category === 'pants') {

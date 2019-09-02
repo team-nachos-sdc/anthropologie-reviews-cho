@@ -3,7 +3,7 @@ import StarSummary from './StarSummary.jsx';
 import Reviews from './Reviews.jsx';
 
 const Summary = (props) => {
-  const {averageRating, averageRecommends, count, productReviews} = props;
+  const {averageRating, averageRecommends, count, productReviews, customersSay} = props;
   return(
     <div className="grid-container">
       <div className="summary-container average_stars">
@@ -13,7 +13,7 @@ const Summary = (props) => {
         <div className="content">{averageRecommends} Recommended</div>
       </div>
       <div className="summary-container average_fit">
-        <div className="content">Customers Say Average</div>
+        <div className="content">Customers say {customersSay} </div>
       </div>
       <div className="review_pag">pagination  1/1 > </div>
       <div className="reviews_component"><Reviews productReviews={productReviews}/></div>

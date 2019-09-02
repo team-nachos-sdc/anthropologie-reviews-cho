@@ -25,7 +25,8 @@ var productSchema = new mongoose.Schema({
     size_purchased: String,
     size: String,
     recommends: Boolean,
-    date: String
+    date: String,
+    category: String
   }],
 })
 

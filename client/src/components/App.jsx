@@ -10,7 +10,8 @@ export default class App extends Component {
       productReviews: [],
       count: 0,
       averageRating: 0,
-      averageRecommends: 0
+      averageRecommends: 0,
+      customersSay: ''
     }
     //bind functions here
     this.loadPage = this.loadPage.bind(this);
@@ -37,21 +38,39 @@ export default class App extends Component {
     const totalRatings = productReviews.reduce((sum, review) => {
       return sum + review.rating
     }, 0);
+    const sizeOptions = ['XS','S','M','L','XL'];
+    const checker = function() {
+      var fitCheck = 0;
+      for(var i = 0; i < productReviews.length; i ++) {
+        var pr = productReviews[i];
+        var sizeDiff = sizeOptions.indexOf(pr.size_purchased) - sizeOptions.indexOf(pr.size) // + runs big, - runs small
+        if(pr.fits) {
+          fitCheck += sizeDiff
+        }
+        if(!pr.fits && sizeDiff === 0) {
+          fitCheck += -1
+        }
+      }
+      fitCheck = fitCheck/productReviews.lengh
+      return fitCheck < -1 ? 'Runs Small' : fitCheck >= -1 && fitCheck <= 1 ? 'True to Size' : 'Runs Large'
+    }
+    // const sizes = productReviews.filter((review) => {return review.size});
     const totalRecommends = productReviews.filter((review) => {return review.recommends}).length;
     this.setState({
       count: productReviews.length,
       averageRating: (totalRatings/productReviews.length).toFixed(1),
-      averageRecommends:`${Math.round((totalRecommends/productReviews.length)*100)}%`
+      averageRecommends:`${Math.round((totalRecommends/productReviews.length)*100)}%`,
+      customersSay: checker()
     })
   }
 
   //create functions heree
   render(){
-    const {productReviews, count, averageRating, averageRecommends} = this.state;
+    const {productReviews, count, averageRating, averageRecommends, customersSay} = this.state;
     return(
       <React.Fragment>
         <h3 className='title'>Ratings & Reviews</h3>
-        <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating}/>
+        <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
         {JSON.stringify(this.state.productReviews)}
       </React.Fragment>
     )
