@@ -74,6 +74,12 @@ table {
     font-weight: normal;
     font-style: normal;
 }
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font-Black';
+    src: url('./AvenirLTStd-Black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 @media only screen and (max-width: 710px) {
   .title {
     text-align: left;
@@ -170,6 +176,10 @@ div.reviews-container > div { /*select div children of div with class reviews-co
 }
 .light {
   font: 13px "Avenir-Font-Light", sans-serif;
+  color: #525252;
+}
+.bold {
+  font: 13px "Avenir-Font-Black", sans-serif;
   color: #525252;
 }
 .stars {
