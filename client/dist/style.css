@@ -86,9 +86,11 @@ table {
   }
   .grid-container {
     grid-template-areas:
-      'stars'
-      'recs'
-      'fit'
+      'average_stars'
+      'average_recs'
+      'average_fit'
+      'reviews_component'
+      'review_pag'
   }
   .summary-container {
     display: block;
