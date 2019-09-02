@@ -107,7 +107,7 @@ table {
       /* 'user review review'; */
   }
   .reviews-grid-container {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
     'review_user review_review review_review'
   }
@@ -130,9 +130,7 @@ body {
   font: 17px 'Avenir-Font-LightOblique', sans-serif;
 }
 .grid-container { display: grid;}
-.reviews-grid-container { 
-  display: grid; 
-  }
+.reviews-grid-container { display: grid; }
 
 .summary-container {
   text-align: center;
@@ -153,6 +151,9 @@ body {
   /* padding:  */
   /* line-height: 20px */
 }
+.date {
+  float: right
+}
 .average_stars { grid-area: average_stars; }
 .average_recs { grid-area: average_recs; }
 .average_fit { grid-area: average_fit; }
@@ -162,12 +163,12 @@ body {
 }
 .review_user { 
   grid-area: review_user; 
-  width: 19em;
+  /* width: 19em; */
   padding: 10px 0 0 0
 }
 .review_review { 
   grid-area: review_review ;
-  width: 40em
+  /* width: 50em */
 }
 .review_pag {
   grid-area: review_pag;
