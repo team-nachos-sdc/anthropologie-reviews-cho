@@ -71,7 +71,6 @@ export default class App extends Component {
       <React.Fragment>
         <h3 className='title'>Ratings & Reviews</h3>
         <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
-        {this.state.customersSay}
         {JSON.stringify(this.state.productReviews)}
       </React.Fragment>
     )
