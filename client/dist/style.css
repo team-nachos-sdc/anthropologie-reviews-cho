@@ -50,6 +50,12 @@ table {
     font-weight: normal;
     font-style: normal;
 }
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font-Light';
+    src: url('./AvenirLTStd-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @media only screen and (max-width: 710px) {
   .title {
@@ -140,6 +146,7 @@ body {
   text-align: right;
 }
 .bold1 {
+  padding: 0 0 15px 0
   /* color: blue; */
   /* font-size: 11px; */
 }
