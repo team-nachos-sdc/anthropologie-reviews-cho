@@ -56,7 +56,24 @@ table {
     font-weight: normal;
     font-style: normal;
 }
-
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font-MediumOblique';
+    src: url('./AvenirLTStd-MediumOblique.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font-Oblique';
+    src: url('./AvenirLTStd-Oblique.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font-LightOblique';
+    src: url('./AvenirLTStd-LightOblique.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 @media only screen and (max-width: 710px) {
   .title {
     text-align: left;
@@ -91,7 +108,7 @@ table {
 }
 
 body {
-  color: #26262c;
+  color: #383838;
   font: 13px "Avenir-Font", sans-serif;
   background-color: #fdfdf9; 
   letter-spacing: 0.75px;
@@ -101,6 +118,9 @@ body {
 .title {
     font-weight: 540;
     font-size: 135%;
+}
+.reviewTitle {
+  font: 17px 'Avenir-Font-LightOblique', sans-serif;
 }
 .grid-container { display: grid;}
 .reviews-grid-container { 

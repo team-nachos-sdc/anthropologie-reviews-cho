@@ -40,12 +40,12 @@ export default class Review extends Component {
             <div>Height: <span className="light">{review.height}</span></div>
           </div>
           <div className="reviews-container review_review">
-            <div><span>{review.title}</span></div>
-            <div><span>{review.review}</span></div>
-            <div><span>Fits: </span><span>{review.fits}</span></div>
-            <div><span>Fit Purchased: </span><span>{review.fit_purchased}</span></div>
-            <div><span>Size Purchased: </span><span>{review.size_purchased}</span></div>
-            <div><span>Size Normally Worn: </span><span>{review.size}</span></div>
+            <div><span className="reviewTitle">{review.title}</span></div>
+            <div><span className="light">{review.review}</span></div>
+            <div><span>Fits: </span><span className="light">{review.fits}</span></div>
+            <div><span>Fit Purchased: </span><span className="light">{review.fit_purchased}</span></div>
+            <div><span>Size Purchased: </span><span className="light">{review.size_purchased}</span></div>
+            <div><span>Size Normally Worn: </span><span className="light">{review.size}</span></div>
             <div><span>{review.recommends}</span></div>
           </div>
         </div>
