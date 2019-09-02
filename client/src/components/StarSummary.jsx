@@ -8,8 +8,8 @@ const StarSummary = (props) => {
         <React.Fragment>
           {props.average} <span>|</span> {`${props.count} Reviews`}
           <div className='starGroup'>
-            <div className='goldstars oneStar'></div>
-            <div className='graystars fourStar'></div>
+            <div className='stars goldstars oneStar'></div>
+            <div className='stars graystars fourStar'></div>
           </div>
         </React.Fragment>          
       );
@@ -18,8 +18,8 @@ const StarSummary = (props) => {
         <React.Fragment>
             {props.average} <span>|</span> {`${props.count} Reviews`}
             <div className='starGroup'>
-            <div className='goldstars twoStar'></div>
-            <div className='graystars threeStar'></div>
+            <div className='stars goldstars twoStar'></div>
+            <div className='stars graystars threeStar'></div>
             </div>
         </React.Fragment>          
         );
@@ -28,8 +28,8 @@ const StarSummary = (props) => {
         <React.Fragment>
             {props.average} <span>|</span> {`${props.count} Reviews`}
             <div className='starGroup'>
-            <div className='goldstars threeStar'></div>
-            <div className='graystars twoStar'></div>
+            <div className='stars goldstars threeStar'></div>
+            <div className='stars graystars twoStar'></div>
             </div>
         </React.Fragment>          
         );
@@ -38,8 +38,8 @@ const StarSummary = (props) => {
         <React.Fragment>
             {props.average} <span>|</span> {`${props.count} Reviews`}
             <div className='starGroup'>
-            <div className='goldstars fourStar'></div>
-            <div className='graystars oneStar'></div>
+            <div className='stars goldstars fourStar'></div>
+            <div className='stars graystars oneStar'></div>
             </div>
           </React.Fragment>          
         );
@@ -47,7 +47,7 @@ const StarSummary = (props) => {
       return(
         <div>
           {props.average} <span>|</span> {`${props.count} Reviews`}
-        <div className='goldstars fiveStar'></div>
+        <div className='stars goldstars fiveStar'></div>
         </div>  
       );
     default:

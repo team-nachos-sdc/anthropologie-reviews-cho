@@ -143,47 +143,31 @@ body {
   /* color: blue; */
   /* font-size: 11px; */
 }
-.goldstars {
-  background-image: url(/goldStar.svg);
-  /* background-position-x: center; */
-  /* background-position-y: center; */
-  /* background-position: center; */
+.stars {
   margin-left: auto;
   margin-right: auto;
   background-size: 16px;
   height: 16px;
   display: inline-block
 }
+.goldstars {
+  background-image: url(/plain_goldStar.svg);
+}
 .graystars {
-  background-image: url(/grayStar.svg);
-  /* background-position-x: center; */
-  /* background-position-y: center; */
-  /* background-position: center; */
-  margin-left: auto;
-  margin-right: auto;
-  background-size: 16px;
-  height: 16px;
-  display: inline-block
+  background-image: url(/plain_grayStar.svg);
 }
 .oneStar {
   width: 16px;
-  /* display: inline-block */
 }
 .twoStar {
   width: 32px;
-  /* display: inline-block */
-
-
 }
 .threeStar {
   width: 48px;
-  /* display: inline-block */
 
 }
 .fourStar {
   width: 64px;
-  /* display: inline-block */
-
 }
 .fiveStar {
   width: 80px;
