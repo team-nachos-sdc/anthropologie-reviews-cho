@@ -111,10 +111,14 @@ body {
   margin: 2px;
   padding: 10px
 }
+.starGroup{
+  padding: 10px 0 0 0 
+}
 .content {
   width: 180px;
   margin: auto;
-  line-height: 2px
+  /* padding:  */
+  /* line-height: 20px */
 }
 .average_stars { grid-area: average_stars; }
 .average_recs { grid-area: average_recs; }
