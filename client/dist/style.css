@@ -150,6 +150,7 @@ div.reviews-container > div { /*select div children of div with class reviews-co
 }
 .light {
   font: 13px "Avenir-Font-Light", sans-serif;
+  color: #525252;
 }
 .stars {
   margin-left: auto;
