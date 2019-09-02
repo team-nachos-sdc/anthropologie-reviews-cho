@@ -51,7 +51,7 @@ export default class App extends Component {
           fitCheck += -1
         }
       }
-      fitCheck = fitCheck/productReviews.lengh
+      fitCheck = fitCheck/productReviews.length
       return fitCheck < -1 ? 'Runs Small' : fitCheck >= -1 && fitCheck <= 1 ? 'True to Size' : 'Runs Large'
     }
     // const sizes = productReviews.filter((review) => {return review.size});
@@ -71,6 +71,7 @@ export default class App extends Component {
       <React.Fragment>
         <h3 className='title'>Ratings & Reviews</h3>
         <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
+        {this.state.customersSay}
         {JSON.stringify(this.state.productReviews)}
       </React.Fragment>
     )

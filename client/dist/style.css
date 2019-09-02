@@ -182,3 +182,40 @@ body {
 .fiveStar {
   width: 80px;
 }
+
+.sizeTrue {
+  background-image: url(/sizeTrue.svg);
+  /* background-position-x: center;
+  /* background-position-y: center; */
+  /* background-position: center; */
+  margin-left: auto;
+  margin-right: auto;
+  background-size: 16px;
+  height: 16px;
+    width: 200px;
+  display: inline-block
+}
+.sizeLarge {
+  background-image: url(/sizeLarge.svg);
+  /* background-position-x: center; */
+  /* background-position-y: center; */
+  /* background-position: center; */
+  margin-left: auto;
+  margin-right: auto;
+  background-size: 16px;
+  height: 16px;
+  width: 200px;
+  display: inline-block
+}
+.sizeSmall {
+  background-image: url(/sizeSmall.svg);
+  /* background-position-x: center; */
+  /* background-position-y: center; */
+  /* background-position: center; */
+  margin-left: auto;
+  margin-right: auto;
+  background-size: 16px;
+  height: 16px;
+    width: 200px;
+  display: inline-block
+}
