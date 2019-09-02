@@ -15,8 +15,7 @@ const Summary = (props) => {
         <div className="content">{averageRecommends} Recommended</div>
       </div>
       <div className="summary-container average_fit">
-        <div className="content">Customers say {customersSay} </div>
-        <CustomersSay customersSay={customersSay}/>
+        <div className="content">Customers say {customersSay}<CustomersSay customersSay={customersSay}/></div>
       </div>
       <div className="review_pag">pagination  1/1 > </div>
       <div className="reviews_component"><Reviews productReviews={productReviews}/></div>

@@ -114,6 +114,7 @@ body {
 .content {
   width: 180px;
   margin: auto;
+  line-height: 2px
 }
 .average_stars { grid-area: average_stars; }
 .average_recs { grid-area: average_recs; }
@@ -135,7 +136,8 @@ body {
   text-align: right;
 }
 .bold1 {
-  font-weight: 700;
+  /* color: blue; */
+  /* font-size: 11px; */
 }
 .goldstars {
   background-image: url(/goldStar.svg);
@@ -185,17 +187,18 @@ body {
 .customersSay {
   margin-left: auto;
   margin-right: auto;
-  background-size: 85%;
-  height: 100%;
-  width: 230px;
+  background-size: 160px;
+  height: 30px;
+  width: 160px;
   /* background-position-y: center; */
 }
 .sizeTrue {
-  background-image: url(/sizeTrue.svg);
+  background-image: url('plain_sizeTrue.svg');
 }
 .sizeLarge {
-  background-image: url(/sizeLarge.svg);
+  background-image: url('plain_sizeLarge.svg');
 }
 .sizeSmall {
-  background-image: url(/sizeSmall.svg);
+  background-image: url('plain_sizeSmall.svg');
 }
+
