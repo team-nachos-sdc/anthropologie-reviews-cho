@@ -172,11 +172,12 @@ body {
   text-align: right;
 }
 div.reviews-container > div { /*select div children of div with class reviews-container*/
-  padding: 0 0 15px 0 ;
+  padding: 0 0 10px 0 ;
 }
 .light {
   font: 13px "Avenir-Font-Light", sans-serif;
   color: #525252;
+  line-height: 22px
 }
 .bold {
   font: 13px "Avenir-Font-Black", sans-serif;
