@@ -92,6 +92,15 @@ table {
       'reviews_component'
       'review_pag'
   }
+  .reviews-grid-container {
+    grid-template-areas:
+      'review_user'
+      'review_review'
+  }
+  .review-detail-grid-container {
+    grid-template-areas:
+      'user_rating'
+  }
   .summary-container {
     display: block;
   }
@@ -106,12 +115,11 @@ table {
       'average_stars average_recs average_fit'
       'review_pag review_pag review_pag'
       'reviews_component reviews_component reviews_component'
-      /* 'user review review'; */
   }
   .reviews-grid-container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-    'review_user review_review review_review'
+      'review_user review_review review_review'
   }
 }
 
@@ -126,14 +134,14 @@ body {
 .title {
     font-weight: 540;
     font-size: 135%;
-    padding: 0 0 15px 0;
+    padding: 0 0 10px 0;
 }
 .reviewTitle {
   font: 17px 'Avenir-Font-LightOblique', sans-serif;
 }
 .grid-container { display: grid;}
 .reviews-grid-container { display: grid; }
-
+.review-detail-grid-container { display: grid; }
 .summary-container {
   text-align: center;
   padding: 30px;
@@ -150,8 +158,6 @@ body {
 .content {
   width: 180px;
   margin: auto;
-  /* padding:  */
-  /* line-height: 20px */
 }
 .date {
   float: right
@@ -170,7 +176,6 @@ body {
 }
 .review_review { 
   grid-area: review_review ;
-  /* width: 50em */
 }
 .review_pag {
   grid-area: review_pag;
@@ -187,6 +192,9 @@ div.reviews-container > div { /*select div children of div with class reviews-co
 .bold {
   font: 13px "Avenir-Font-Black", sans-serif;
   color: #525252;
+}
+.rating{
+  grid-area: review_rating
 }
 .stars {
   margin-left: auto;
@@ -233,4 +241,7 @@ div.reviews-container > div { /*select div children of div with class reviews-co
 .sizeSmall {
   background-image: url('plain_sizeSmall.svg');
 }
-
+.divider {
+  background-image: url('plain_divider.svg');
+  height: 50px
+}

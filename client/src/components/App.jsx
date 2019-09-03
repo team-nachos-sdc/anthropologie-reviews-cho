@@ -70,6 +70,7 @@ export default class App extends Component {
     return(
       <React.Fragment>
         <h3 className='title'>Ratings & Reviews</h3>
+        <div className='divider'></div>
         <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
         {/* {JSON.stringify(this.state.productReviews)} */}
         {/* <div className='sizeTrue customersSay'>dsfd</div> */}
