@@ -247,9 +247,9 @@ div.reviews-container > div { /*select div children of div with class reviews-co
   background-size: 100%
 }
 .dottedDivider {
-  background-image: url('plain_dot.svg');
+  background-image: url('plain_circledot.svg');
   /* height: 2px; */
-  background-size: 100%;
-  height: 10px;
+  /* background-size: 100px; */
+  height: 70px;
   background-repeat: repeat-x;
 }
