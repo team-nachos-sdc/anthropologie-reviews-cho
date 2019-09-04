@@ -24,7 +24,7 @@ export default class Review extends Component {
             <div>Age: <span className="light">{review.age}</span></div>
           </div>
           <div className="reviews-container review_review">
-            <div><span className="review_rating"><StarRating rating={review.rating}/></span><span className="date">{review.date}</span></div>
+            <div><span className="review_rating"><StarRating rating={review.rating}/></span><span className="date light">{review.date}</span></div>
             <div><span className="reviewTitle">{review.title}</span></div>
             <div><span className="light">{review.review}</span></div>
             <div><span className="bold">Fits: </span><span className="light">{review.fits}</span></div>
@@ -47,7 +47,7 @@ export default class Review extends Component {
             <div>Height: <span className="light">{review.height}</span></div>
           </div>
           <div className="reviews-container review_review">
-            <div><span className="review_rating"><StarRating rating={review.rating}/></span><span className="date">{review.date}</span></div>
+            <div><span className="review_rating"><StarRating rating={review.rating}/></span><span className="date light">{review.date}</span></div>
             <div><span className="reviewTitle">{review.title}</span></div>
             <div><span className="light">{review.review}</span></div>
             <div><span className="bold">Fits: </span><span className="light">{review.fits}</span></div>
