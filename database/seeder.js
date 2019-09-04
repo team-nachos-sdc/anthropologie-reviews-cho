@@ -24,7 +24,7 @@ var dateFormatter = function(date) {
                       "Oct","Nov","Dec"];
 
   var d = new Date(date),
-    month = month_names[d.getMonth() + 1],
+    month = month_names[d.getMonth()],
     day = '' + d.getDate(),
     year = d.getFullYear();
   
@@ -59,7 +59,7 @@ Product.prototype.makeSize_purchased = function() {
 Product.prototype.makeSize = function() {
   return this.category === 'pants' ? this.fits ? this.size_purchased : getRandomItem(size_purchased_pants) : getRandomItem(size_purchased)};
 Product.prototype.makeRecommends = function(rating) {return rating > 3 ? true : false};
-Product.prototype.makeDate = function() {return faker.date.past(randomGen(3,0))};
+Product.prototype.makeDate = function() {return faker.date.past(randomGen(3, 1))};
 
 var MakeProducts = () => {
   var products = [];
@@ -100,11 +100,11 @@ var MakeProducts = () => {
 }
 
 
-// var seedDatabase = function(data) {
-//   ProductModel.insertMany(data, function(err, resp) {
-//     if(err) {console.log(`error: ${err}`)}
-//     else {console.log(`response: `)}
-//   })
-// }
+var seedDatabase = function(data) {
+  ProductModel.insertMany(data, function(err, resp) {
+    if(err) {console.log(`error: ${err}`)}
+    else {console.log(`response: `)}
+  })
+}
 
-// seedDatabase(MakeProducts());
+seedDatabase(MakeProducts());
