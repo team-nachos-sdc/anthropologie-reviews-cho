@@ -253,3 +253,12 @@ div.reviews-container > div { /*select div children of div with class reviews-co
   height: 70px;
   background-repeat: repeat-x;
 }
+
+.check {
+  background-image: url('plain_check.svg');
+  background-size: 20px;
+  height: 20px;
+  width: 20px;
+  margin: 15px auto 0 auto 
+  /* background-repeat: no repeat */
+}
