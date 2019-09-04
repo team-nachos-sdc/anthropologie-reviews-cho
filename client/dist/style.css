@@ -140,7 +140,10 @@ body {
   font: 17px 'Avenir-Font-LightOblique', sans-serif;
 }
 .grid-container { display: grid;}
-.reviews-grid-container { display: grid; }
+.reviews-grid-container { 
+  display: grid; 
+  padding: 10px 0 0 0
+}
 .review-detail-grid-container { display: grid; }
 .summary-container {
   text-align: center;
@@ -250,14 +253,14 @@ div.reviews-container > div { /*select div children of div with class reviews-co
   background-image: url('plain_circledot.svg');
   /* height: 2px; */
   /* background-size: 100px; */
-  height: 70px;
+  height: 15px;
   background-repeat: repeat-x;
 }
 
 .check {
   background-image: url('plain_check.svg');
-  background-size: 20px;
-  height: 20px;
-  width: 20px;
+  background-size: 25px;
+  height: 25px;
+  width: 25px;
   margin: 15px auto 0 auto 
 }
