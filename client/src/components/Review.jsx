@@ -16,6 +16,7 @@ export default class Review extends Component {
     const { review } = this.props;
     if(review.category === 'bedding') {
       return(
+        <React.Fragment>
         <div className="reviews-grid-container">
           <div className="reviews-container review_user">
             <div>{review.username}</div>
@@ -31,9 +32,12 @@ export default class Review extends Component {
             <div><span>{review.recommends}</span></div>
           </div>
         </div>
+        <div className='dottedDivider'></div>
+        </React.Fragment>
       )
     } else {
       return(
+        <React.Fragment>
         <div className="reviews-grid-container">
           <div className="reviews-container review_user">
             <div>{review.username}</div>
@@ -53,6 +57,8 @@ export default class Review extends Component {
             <div><span>{review.recommends}</span></div>
           </div>
         </div>
+        <div className='dottedDivider'></div>
+        </React.Fragment>
       )
     }
 
