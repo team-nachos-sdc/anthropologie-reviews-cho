@@ -80,6 +80,18 @@ table {
     font-weight: normal;
     font-style: normal;
 }
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font-Roman';
+    src: url('./AvenirLTStd-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face { /*Anthropologie main font*/
+    font-family: 'Avenir-Font-Book';
+    src: url('./AvenirLTStd-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 @media only screen and (max-width: 710px) {
   .title {
     text-align: left;
@@ -105,10 +117,9 @@ table {
     display: block;
   }
   .review_pag {
-    /* display: block; */
     margin-left: auto;
     margin-right: auto
-  } 
+  }
 }
 @media only screen and (min-width: 711px) {
   .title {
@@ -283,4 +294,15 @@ div.reviews-container > div { /*select div children of div with class reviews-co
   height: 25px;
   width: 25px;
   margin: 15px auto 0 auto 
+}
+.review_button {
+  padding: 15px 130px;
+  font: 13px sans-serif;
+  background-color: #fdfdf9; 
+  color: #525252;
+  letter-spacing: 2.5px;
+}
+.button_div{
+  text-align: center;
+  padding: 15px
 }
