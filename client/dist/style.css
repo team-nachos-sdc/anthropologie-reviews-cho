@@ -94,8 +94,8 @@ table {
   }
   .reviews-grid-container {
     grid-template-areas:
-      'review_user'
       'review_review'
+      'review_user'
   }
   .review-detail-grid-container {
     grid-template-areas:
@@ -182,7 +182,24 @@ body {
 }
 .review_pag {
   grid-area: review_pag;
-  text-align: right;
+  /* text-align: right; */
+  vertical-align: middle
+}
+.pag_span {
+  float: right;
+  padding: 10px 0
+}
+.pag_arrows {
+  background-size: 100%;
+  height: 25px;
+  width: 17px;
+  display: inline-block;
+}
+.leftPag {
+  background-image: url('plain_leftPag.svg');
+}
+.rightPag {
+  background-image: url('plain_rightPag.svg');
 }
 div.reviews-container > div { /*select div children of div with class reviews-container*/
   padding: 0 0 10px 0 ;
@@ -256,7 +273,6 @@ div.reviews-container > div { /*select div children of div with class reviews-co
   height: 15px;
   background-repeat: repeat-x;
 }
-
 .check {
   background-image: url('plain_check.svg');
   background-size: 25px;

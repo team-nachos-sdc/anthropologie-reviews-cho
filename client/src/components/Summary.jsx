@@ -18,7 +18,7 @@ const Summary = (props) => {
       <div className="summary-container average_fit">
         <div className="content">Customers say {customersSay}<CustomersSay customersSay={customersSay}/></div>
       </div>
-      <div className="review_pag">pagination  1/1 > </div>
+      <div className="review_pag"><span className="pag_span"><div className="leftPag pag_arrows"></div> 1 / 1 <div className="rightPag pag_arrows"></div></span></div>
       <div className="reviews_component"><Reviews productReviews={productReviews}/></div>
     </div>
   )
