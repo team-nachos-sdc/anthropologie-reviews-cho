@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
 import Summary from './Summary.jsx';
+import ReviewModal from './ReviewModal.jsx';
 
 export default class App extends Component {
   constructor(props){
@@ -11,11 +12,13 @@ export default class App extends Component {
       count: 0,
       averageRating: 0,
       averageRecommends: 0,
-      customersSay: ''
+      customersSay: '',
+      showModal: false
     }
     //bind functions here
     this.loadPage = this.loadPage.bind(this);
     this.calculateAverages = this.calculateAverages.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -64,18 +67,28 @@ export default class App extends Component {
     })
   }
 
+  toggleModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    })
+  }
   //create functions heree
   render(){
     const {productReviews, count, averageRating, averageRecommends, customersSay} = this.state;
+
     return(
-      <React.Fragment>
-        <h3 className='title'>Ratings & Reviews</h3>
-        <div className='divider'></div>
-        <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
-        <div className="button_div"><button className="review_button">WRITE A REVIEW</button></div>
-        {/* {JSON.stringify(this.state.productReviews)} */}
-        {/* <div className='sizeTrue customersSay'>dsfd</div> */}
-      </React.Fragment>
+        <React.Fragment>
+          <h3 className='title'>Ratings & Reviews</h3>
+          <div className='divider'></div>
+          <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
+          <div className="button_div"><button className="light_button button" onClick={this.toggleModal}>WRITE A REVIEW</button></div>
+          <div className="center"><span className="italic">Reviews may have been incentivized. </span><span className="greenLinks">Learn More</span></div>
+          <ReviewModal show={this.state.showModal}
+          onClose={this.toggleModal}>
+          </ReviewModal>
+          {/* {JSON.stringify(this.state.productReviews)} */}
+          {/* <div className='sizeTrue customersSay'>dsfd</div> */}
+        </React.Fragment>
     )
   }
 }

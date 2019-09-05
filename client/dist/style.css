@@ -44,6 +44,15 @@ table {
 }
 /*css reset end*/ 
 
+/*css variables*/
+:root {
+  --main-bg-color: #fdfdf9;
+  --link-font-color: #167a92;
+  --light-button-font-color:#525252;
+  --dark-button-bg-color: #4b5666; 
+  --modal-default-element-width: 420px;
+}
+/*css variables ends*/
 @font-face { /*Anthropologie main font*/
     font-family: 'Avenir-Font';
     src: url('./AvenirLTStd-Medium.woff') format('woff');
@@ -146,7 +155,7 @@ table {
 body {
   color: #383838;
   font: 13px "Avenir-Font", sans-serif;
-  background-color: #fdfdf9; 
+  background-color: var(--main-bg-color); 
   letter-spacing: 0.75px;
   margin: 30px
 }
@@ -154,7 +163,6 @@ body {
 .title {
     font-weight: 540;
     font-size: 135%;
-    /* padding: 0 0 5px 0; */
 }
 .reviewTitle {
   font: 17px 'Avenir-Font-LightOblique', sans-serif;
@@ -221,12 +229,12 @@ div.reviews-container > div { /*select div children of div with class reviews-co
 }
 .light {
   font: 13px "Avenir-Font-Light", sans-serif;
-  color: #525252;
+  color: var(--light-button-font-color);
   line-height: 22px
 }
 .bold {
   font: 13px "Avenir-Font-Black", sans-serif;
-  color: #525252;
+  color: var(--light-button-font-color);
 }
 .rating{
   grid-area: review_rating
@@ -295,14 +303,90 @@ div.reviews-container > div { /*select div children of div with class reviews-co
   width: 25px;
   margin: 15px auto 0 auto 
 }
-.review_button {
-  padding: 15px 130px;
+.button {
+  padding: 15px 110px;
   font: 13px sans-serif;
-  background-color: #fdfdf9; 
-  color: #525252;
   letter-spacing: 2.5px;
+}
+.light_button {
+  background-color: var(--main-bg-color); 
+  color:  var(--link-font-color);
+}
+.light2_button {
+  background-color: var(--main-bg-color); 
+  color: var(--light-button-font-color);
+  width: var(--modal-default-element-width)
+}
+.dark_button {
+  background-color:var(--dark-button-bg-color);
+  color: var(--main-bg-color); 
 }
 .button_div{
   text-align: center;
   padding: 15px
+}
+.light_button:hover { 
+  background-color: var(--link-font-color);
+  color: var(--main-bg-color);
+}
+.light2_button:hover { 
+  background-color: var(--dark-button-bg-color); 
+  color: var(--main-bg-color);
+}
+.dark_button:hover {
+  background-color: var(--main-bg-color);
+  color: var(--main-bg-color);
+}
+.greenLinks {
+  color: var(--link-font-color);
+}
+.italic {
+  font: 14px 'Avenir-Font-LightOblique', sans-serif;
+}
+.modalTitle {
+    font-weight: 540;
+    font-size: 25px;
+    padding: 0 0 5px 0;
+}
+.modal-back {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal {
+  background-color: var(--main-bg-color);
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 50px;
+  border: 1px solid #888;
+  width: var(--modal-default-element-width); /* Could be more or less, depending on screen size */
+  height: 600px;
+  /* text-align: center */
+}
+.modalLabel {
+  margin: 30px 0 0 0 ;
+  /* padding: 10px; */
+}
+.center {
+  text-align: center
+}
+.verticalPadding {
+  padding: 10px 0;
+}
+input {
+  width: 100%;
+  height: 20px;
+  margin: 2px 0;
+
+  /* text-align: center */
+}
+.modalDivider {
+  background-image: url('plain_divider.svg');
+  height: 20px;
+  background-size: 100%;
 }
