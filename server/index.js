@@ -7,12 +7,14 @@ const router = require('./router.js');
 //middleware
 const morgan = require('morgan');
 const parser = require('body-parser');
+const proxy = require('./proxy.js');
 
 //use middleware
 app.use(morgan('dev'));
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
+
 
 app.use("/api", router)
 
