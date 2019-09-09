@@ -3,6 +3,8 @@ import { Component } from 'react';
 import axios from 'axios';
 import Summary from './Summary.jsx';
 import ReviewModal from './ReviewModal.jsx';
+import Modal2 from './Modal2.jsx';
+
 // import '../../dist/style.css';
 
 export default class App extends Component {
@@ -84,9 +86,7 @@ export default class App extends Component {
           <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
           <div className="button_div"><button className="light_button button" onClick={this.toggleModal}>WRITE A REVIEW</button></div>
           <div className="center"><span className="italic">Reviews may have been incentivized. </span><span className="greenLinks">Learn More</span></div>
-          <ReviewModal show={this.state.showModal}
-          onClose={this.toggleModal}>
-          </ReviewModal>
+          <Modal2 show={this.state.showModal} onClose={this.toggleModal}/>
           {/* {JSON.stringify(this.state.productReviews)} */}
           {/* <div className='sizeTrue customersSay'>dsfd</div> */}
         </React.Fragment>
