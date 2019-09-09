@@ -1,10 +1,5 @@
 const Products = require('../database/index.js');
 
-const getAll = (req, res) => {
-  Products.find()
-    .then(data => res.status(200).send(data))
-    .catch(err => console.log(`error: ${err}`))
-}
 const getOne = (req, res) => {
   let { productId } = req.params;
   Products.find({product_id: productId.toString()})
@@ -12,7 +7,6 @@ const getOne = (req, res) => {
     .catch(err => console.log(`error: ${err}`))
 }
 module.exports = {
-  getAll,
   getOne
 };
 // const { 

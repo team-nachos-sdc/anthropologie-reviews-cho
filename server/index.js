@@ -7,15 +7,19 @@ const router = require('./router.js');
 //middleware
 const morgan = require('morgan');
 const parser = require('body-parser');
-const proxy = require('./proxy.js');
+// const proxy = require('http-proxy-middleware');
 
 //use middleware
 app.use(morgan('dev'));
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
-
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// })
 
 app.use("/api", router)
 
-app.listen(port, () => {console.log(`listening on port ${port}`)});
+app.listen(port, () => {console.log(`listening on port ${port} for JI COMPONENT`)});

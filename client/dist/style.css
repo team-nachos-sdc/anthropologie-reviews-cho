@@ -102,7 +102,7 @@ table {
     font-style: normal;
 }
 @media only screen and (max-width: 710px) {
-  .title {
+  .ratingTitle {
     text-align: left;
   }
   .grid-container {
@@ -131,7 +131,7 @@ table {
   }
 }
 @media only screen and (min-width: 711px) {
-  .title {
+  .ratingTitle {
     text-align: center;
   }
   .grid-container {
@@ -160,9 +160,9 @@ body {
   margin: 30px
 }
 
-.title {
+.ratingTitle {
     font-weight: 540;
-    font-size: 135%;
+    font-size: 17px;
 }
 .reviewTitle {
   font: 17px 'Avenir-Font-LightOblique', sans-serif;
@@ -186,7 +186,7 @@ body {
 .starGroup{
   padding: 15px 0 0 0 
 }
-.content {
+.summaryContent {
   width: 180px;
   margin: auto;
 }
@@ -234,7 +234,7 @@ div.reviews-container > div { /*select div children of div with class reviews-co
 }
 .bold {
   font: 13px "Avenir-Font-Black", sans-serif;
-  color: var(--light-button-font-color);
+  color: var(--light-button-font-color)
 }
 .rating{
   grid-area: review_rating
@@ -247,10 +247,10 @@ div.reviews-container > div { /*select div children of div with class reviews-co
   display: inline-block
 }
 .goldstars {
-  background-image: url(/plain_goldStar.svg);
+  background-image: url('plain_goldStar.svg');
 }
 .graystars {
-  background-image: url(/plain_grayStar.svg);
+  background-image: url('plain_grayStar.svg');
 }
 .oneStar {
   width: 16px;

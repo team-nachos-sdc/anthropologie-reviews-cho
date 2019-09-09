@@ -3,6 +3,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import Summary from './Summary.jsx';
 import ReviewModal from './ReviewModal.jsx';
+// import '../../dist/style.css';
 
 export default class App extends Component {
   constructor(props){
@@ -30,7 +31,7 @@ export default class App extends Component {
     const min = 1;
     const randomProductId = Math.floor(Math.random() * (max - min + 1)) + min;
     axios //gets specified product's reviews
-      .get(`/api/getOne/${randomProductId}`)
+      .get(`/api/review/${randomProductId}`)
       .then((data) => {this.setState({productReviews: data.data[0].reviews})})
       .then(() => {this.calculateAverages()}) //after grabbing reviews, get all calculations 
       .catch((err) => {console.log(`failed load get`)})
@@ -78,7 +79,7 @@ export default class App extends Component {
 
     return(
         <React.Fragment>
-          <h3 className='title'>Ratings & Reviews</h3>
+          <h3 className='ratingTitle'>Ratings & Reviews</h3>
           <div className='divider'></div>
           <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
           <div className="button_div"><button className="light_button button" onClick={this.toggleModal}>WRITE A REVIEW</button></div>
