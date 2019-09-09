@@ -151,14 +151,20 @@ table {
     padding: 10px 0
   }
 }
-
-body {
+#review {
   color: #383838;
   font: 13px "Avenir-Font", sans-serif;
   background-color: var(--main-bg-color); 
   letter-spacing: 0.75px;
   margin: 30px
 }
+/* body.reviewBody {
+  color: #383838;
+  font: 13px "Avenir-Font", sans-serif;
+  background-color: var(--main-bg-color); 
+  letter-spacing: 0.75px;
+  margin: 30px
+} */
 
 .ratingTitle {
     font-weight: 540;
@@ -189,6 +195,7 @@ body {
 .summaryContent {
   width: 180px;
   margin: auto;
+  /* font-weight: 550; */
 }
 .date {
   float: right
@@ -202,7 +209,8 @@ body {
 }
 .review_user { 
   grid-area: review_user; 
-  padding: 10px 0 0 0
+  padding: 10px 0 0 0;
+  font-weight: bold
 }
 .review_review { 
   grid-area: review_review ;
@@ -230,11 +238,13 @@ div.reviews-container > div { /*select div children of div with class reviews-co
 .light {
   font: 13px "Avenir-Font-Light", sans-serif;
   color: var(--light-button-font-color);
-  line-height: 22px
+  line-height: 22px;
+  font-weight: light
 }
 .bold {
   font: 13px "Avenir-Font-Black", sans-serif;
-  color: var(--light-button-font-color)
+  color: var(--light-button-font-color);
+  font-weight: bold
 }
 .rating{
   grid-area: review_rating
