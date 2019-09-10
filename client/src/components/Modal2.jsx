@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
 
-const Modal2 = (props) => {
-  if(!props.show) {
-    return null
-  } else {
-    return (
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      XMoused: false,
+
+    }
+    this.mouseOut = this.mouseOut.bind(this);
+    this.mouseOver = this.mouseOver.bind(this);
+
+  }
+
+  mouseOut() {
+    this.setState({ XMoused: false });
+  }
+
+  mouseOver() {
+    this.setState({ XMoused: true });
+  }
+
+  render() {
+    if (!this.props.show) {
+      return null
+    } else {
+      return (
         <div className="fullscreen-container">
           <div className="login-modal">
             <div>
-              <img src={'./images/XHover.png'} onClick={props.onClose} className="X"></img> : <img className="X" src={'./images/X.png'} onClick={props.onClose}></img>
+              {this.state.XMoused ? <img src={'./images/XHover.png'} onClick={this.props.handleXClick} onMouseOut={this.mouseOut} onMouseOver={this.mouseOver} className="X"></img> : <img className="X" src={'./images/X.png'} onClick={this.props.handleXClick} onMouseOut={this.mouseOut} onMouseOver={this.mouseOver} ></img>}
               <p className="sign-in"> Sign In</p>
             </div>
             <form className="login" action="/action_page.php">
@@ -35,9 +55,7 @@ const Modal2 = (props) => {
             <button id="create-account">CREATE AN ACCOUNT</button>
           </div>
         </div>
-    )
-  } 
+      )
+    } 
+  }
 }
-
-
-export default Modal2

@@ -16,12 +16,14 @@ export default class App extends Component {
       averageRating: 0,
       averageRecommends: 0,
       customersSay: '',
-      showModal: false
+      showModal: false,
+      loginClicked: false
     }
     //bind functions here
     this.loadPage = this.loadPage.bind(this);
     this.calculateAverages = this.calculateAverages.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    // this.handleXClick = this.handleXClick.bind(this);
   }
 
   componentDidMount() {
@@ -86,7 +88,7 @@ export default class App extends Component {
           <Summary productReviews={productReviews} count={count} averageRecommends={averageRecommends} averageRating={averageRating} customersSay={customersSay}/>
           <div className="button_div"><button className="light_button button" onClick={this.toggleModal}>WRITE A REVIEW</button></div>
           <div className="center"><span className="italic">Reviews may have been incentivized. </span><span className="greenLinks">Learn More</span></div>
-          <Modal2 show={this.state.showModal} onClose={this.toggleModal}/>
+          <Modal2 show={this.state.showModal} onClose={this.toggleModal} handleXClick={this.toggleModal}/>
           {/* {JSON.stringify(this.state.productReviews)} */}
           {/* <div className='sizeTrue customersSay'>dsfd</div> */}
         </React.Fragment>
