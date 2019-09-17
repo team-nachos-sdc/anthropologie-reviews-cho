@@ -1,5 +1,6 @@
 const ProductModel = require('./index.js');
 const faker = require('faker');
+const fs = require('fs');
 
 var age = ['18-24','25-29','30-34','35-39','40-44','45-49','50-55','Over 55']
 var body_type = ['Hourglass','Straight','Rounded Torso',
@@ -38,14 +39,14 @@ var Product = function(product_id){
 
 // Product.prototype.makeCategory = function() {return this.product_id < 26 && this.product_id > 0 ? 'dress' : this.product_id > 25 && this.product_id < 51 ? 'pants' : this.product_id > 50 && this.product_id < 76 ? 'skirt' : 'bedding'}
 Product.prototype.makeRating = function() {return randomGen(5, 1)};
-Product.prototype.makeReviewCount = function() {return randomGen(10, 5)};
+Product.prototype.makeReviewCount = function() {return randomGen(3, 0)};
 Product.prototype.makeUsername = function() {return faker.internet.userName()};
 Product.prototype.makeLocation = function() {return faker.address.city() + ', ' + faker.address.stateAbbr()};
 Product.prototype.makeAge = function() {return getRandomItem(age)};
 Product.prototype.makeBody_type = function() {return getRandomItem(body_type)};
 Product.prototype.makeHeight = function() {return `${randomGen(6,4)}'${randomGen(12,1) - 1}"`};
-Product.prototype.makeTitle = function() {return faker.lorem.sentence(randomGen(10,3))};
-Product.prototype.makeReview = function() {return faker.lorem.sentences(randomGen(10,3))};
+Product.prototype.makeTitle = function() {return faker.lorem.sentence(randomGen(3,1))};
+Product.prototype.makeReview = function() {return faker.lorem.sentences(randomGen(3,1))};
 Product.prototype.makeFits = function(rating) {return rating > 3 ? true : false};
 Product.prototype.makeFit_purchased = function() {return getRandomItem(fit_purchased)};
 Product.prototype.makeSize_purchased = function() {
@@ -61,20 +62,20 @@ Product.prototype.makeSize = function() {
 Product.prototype.makeRecommends = function(rating) {return rating > 3 ? true : false};
 Product.prototype.makeDate = function() {return faker.date.past(randomGen(3, 1))};
 
-var MakeProducts = () => {
-  var products = [];
-  for (var i = 1; i < 101; i ++) {
-    var newProduct = new Product(i);
+/* original function on making products*/
+
+var MakeProduct = (i) => {
+  var newProduct = new Product(i);
     var reviewCount = newProduct.makeReviewCount();
     newProduct.reviews = [];
     for(var j = 0; j < reviewCount; j++){
       var review = {};
-      if(i < 76){
+      if(i < 7600000){
         review.body_type = newProduct.makeBody_type();
         review.height = newProduct.makeHeight().toString();
         review.fit_purchased = newProduct.makeFit_purchased();
       }
-      review.category = i >= 76 ? 'bedding' : i > 50 ? 'skirt' : i > 25 ? 'pants' : 'dresses';
+      review.category = i >= 7600000 ? 'bedding' : i > 5000000 ? 'skirt' : i > 2500000 ? 'pants' : 'dresses';
       review.username = newProduct.makeUsername();
       review.location = newProduct.makeLocation();
       review.age = newProduct.makeAge();
@@ -94,17 +95,107 @@ var MakeProducts = () => {
       review.date = dateFormatter(newProduct.makeDate());
       newProduct.reviews.push(review);
     }
-    products.push(newProduct);
-  }
-  return products
+    return newProduct;
 }
 
+// var MakeProducts = () => {
+//   var products = [];
+//   for (var i = 1; i < 101; i ++) {
+//     if(i % 100000 === 0) {console.log( i )}
+//     var newProduct = new Product(i);
+//     var reviewCount = newProduct.makeReviewCount();
+//     newProduct.reviews = [];
+//     for(var j = 0; j < reviewCount; j++){
+//       var review = {};
+//       if(i < 76){
+//         review.body_type = newProduct.makeBody_type();
+//         review.height = newProduct.makeHeight().toString();
+//         review.fit_purchased = newProduct.makeFit_purchased();
+//       }
+//       review.category = i >= 76 ? 'bedding' : i > 50 ? 'skirt' : i > 25 ? 'pants' : 'dresses';
+//       review.username = newProduct.makeUsername();
+//       review.location = newProduct.makeLocation();
+//       review.age = newProduct.makeAge();
+//       review.rating = newProduct.makeRating();
+//       review.title = newProduct.makeTitle();
+//       review.review = newProduct.makeReview();
+//       review.fits = newProduct.makeFits(review.rating);
+//       review.size_purchased = newProduct.makeSize_purchased();
+//       review.size = (function() {  
+//         if(this.category === 'pants') {
+//           return this.fits ? this.size_purchased : getRandomItem(size_purchased_pants)
+//         } else {
+//           return this.fits ? this.size_purchased : getRandomItem(size_purchased)
+//         }
+//       })();
+//       review.recommends = newProduct.makeRecommends(review.rating);
+//       review.date = dateFormatter(newProduct.makeDate());
+//       newProduct.reviews.push(review);
+//     }
+//     products.push(newProduct);
+//   }
+//   return products
+// }
 
-var seedDatabase = function(data) {
+
+
+
+// let wstream = fs.createWriteStream('seeder1.json');
+
+// /* create write streams with drain */
+
+// function dataWrites(wstream, encoding, cb) {
+//   let i = 10000000;
+//   function write() {
+//     let ok = true;
+//     do {
+//       if (i  % 100000 === 0) {console.log(i)}
+//       i--;
+//       if (i === 0) {
+//         wstream.write(JSON.stringify(MakeProduct(i)), encoding, cb);
+//       } else {
+//         ok  = wstream.write(JSON.stringify(MakeProduct(i)), encoding);
+//       }
+//     } while (i > 0  && ok);
+//     if ( i > 0) {
+//       wstream.once('drain', write)
+//     }
+//   } 
+//   write()
+// };
+
+// dataWrites(wstream, 'utf8', () => {
+//   wstream.end()
+// });
+
+
+
+
+
+
+// wstream.write(data, 'UTF8')
+
+// wstream.on('finish', function() {
+  //   console.log('finished writing')
+  // })
+  
+  // wstream.on('err', function(err) {
+    //   console.log(`err: ${err}`)
+    // })
+    
+    
+    
+    
+/* Seeding database functions
+  // mongoimport --db anthropologie --collection reviews --file seeder1.json --batchSize 1 *put in through terminal
+
+
+  var seedDatabase = function(data) {
   ProductModel.insertMany(data, function(err, resp) {
     if(err) {console.log(`error: ${err}`)}
-    else {console.log(`response: `)}
+    else {console.log(`response: db seeded`)}
   })
 }
 
 seedDatabase(MakeProducts());
+*/
