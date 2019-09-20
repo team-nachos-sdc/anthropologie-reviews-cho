@@ -4,8 +4,9 @@ const getReview = (productId) => {
   return ProductModel.findOne({product_id: productId})
 } 
 
-const postReview = (product_id, product_category, reviews) => {
-  return ProductModel.create({ product_id, product_category, reviews })
+const postReview = (product_id, reviews) => {
+  console.log(product_id);
+  return ProductModel.create({ product_id, reviews })
 }
 
 

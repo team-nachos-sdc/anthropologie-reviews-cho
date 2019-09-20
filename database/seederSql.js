@@ -140,9 +140,6 @@ var MakeDressReviews = () => {
 
 const createProd = () => {
   let prodArr = [];
-  for (let i = 0; i < 10; i++){
-    prodArr.push(MakeBeddingReviews())
-  }
   for (let j = 0; j < 10; j++){
     prodArr.push(MakePantReviews())
   }
@@ -151,6 +148,9 @@ const createProd = () => {
   }
   for (let l = 0; l < 10; l++){
     prodArr.push(MakeDressReviews())
+  }
+  for (let i = 0; i < 10; i++){
+    prodArr.push(MakeBeddingReviews())
   }
   return prodArr;
 }
@@ -185,11 +185,11 @@ function toCSV(json) {
 }
 
 /* create write streams with drain */
-let wstream = fs.createWriteStream('productsCSV2.csv');
-// let wstream = fs.createWriteStream('reviewsCSV.csv');
+// let wstream = fs.createWriteStream('productsCSV2.csv');
+let wstream = fs.createWriteStream('reviewsCSV2.csv');
 
 function dataWrites (wstream, encoding, cb) {
-  wstream.write(toCSV(millions()), encoding, cb);
+  wstream.write(toCSV(createProd()), encoding, cb);
         console.log("finish seeding")
 }
 
