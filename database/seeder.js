@@ -1,6 +1,7 @@
 const ProductModel = require('./index.js');
 const faker = require('faker');
 const fs = require('fs');
+const jsonexport = require('jsonexport')
 
 var age = ['18-24','25-29','30-34','35-39','40-44','45-49','50-55','Over 55']
 var body_type = ['Hourglass','Straight','Rounded Torso',
@@ -37,9 +38,8 @@ var Product = function(product_id){
   this.product_id = product_id;
 }
 
-// Product.prototype.makeCategory = function() {return this.product_id < 26 && this.product_id > 0 ? 'dress' : this.product_id > 25 && this.product_id < 51 ? 'pants' : this.product_id > 50 && this.product_id < 76 ? 'skirt' : 'bedding'}
 Product.prototype.makeRating = function() {return randomGen(5, 1)};
-Product.prototype.makeReviewCount = function() {return randomGen(3, 0)};
+Product.prototype.makeReviewCount = function() {return randomGen(5, 1)};
 Product.prototype.makeUsername = function() {return faker.internet.userName()};
 Product.prototype.makeLocation = function() {return faker.address.city() + ', ' + faker.address.stateAbbr()};
 Product.prototype.makeAge = function() {return getRandomItem(age)};
@@ -56,52 +56,16 @@ Product.prototype.makeSize_purchased = function() {
     return this.fits ? this.size_purchased : getRandomItem(size_purchased)
   }
 }
-  // return this.fits ? this.fit_purchased : this.category === 'pants' ? getRandomItem(size_purchased_pants) : getRandomItem(size_purchased)};
 Product.prototype.makeSize = function() {
   return this.category === 'pants' ? this.fits ? this.size_purchased : getRandomItem(size_purchased_pants) : getRandomItem(size_purchased)};
 Product.prototype.makeRecommends = function(rating) {return rating > 3 ? true : false};
 Product.prototype.makeDate = function() {return faker.date.past(randomGen(3, 1))};
 
 /* original function on making products*/
-
-var MakeProduct = (i) => {
-  var newProduct = new Product(i);
-    var reviewCount = newProduct.makeReviewCount();
-    newProduct.reviews = [];
-    for(var j = 0; j < reviewCount; j++){
-      var review = {};
-      if(i < 7600000){
-        review.body_type = newProduct.makeBody_type();
-        review.height = newProduct.makeHeight().toString();
-        review.fit_purchased = newProduct.makeFit_purchased();
-      }
-      review.category = i >= 7600000 ? 'bedding' : i > 5000000 ? 'skirt' : i > 2500000 ? 'pants' : 'dresses';
-      review.username = newProduct.makeUsername();
-      review.location = newProduct.makeLocation();
-      review.age = newProduct.makeAge();
-      review.rating = newProduct.makeRating();
-      review.title = newProduct.makeTitle();
-      review.review = newProduct.makeReview();
-      review.fits = newProduct.makeFits(review.rating);
-      review.size_purchased = newProduct.makeSize_purchased();
-      review.size = (function() {  
-        if(this.category === 'pants') {
-          return this.fits ? this.size_purchased : getRandomItem(size_purchased_pants)
-        } else {
-          return this.fits ? this.size_purchased : getRandomItem(size_purchased)
-        }
-      })();
-      review.recommends = newProduct.makeRecommends(review.rating);
-      review.date = dateFormatter(newProduct.makeDate());
-      newProduct.reviews.push(review);
-    }
-    return newProduct;
-}
-
 // var MakeProducts = () => {
 //   var products = [];
 //   for (var i = 1; i < 101; i ++) {
-//     if(i % 100000 === 0) {console.log( i )}
+//     if(i % 10 === 0) {console.log( i )}
 //     var newProduct = new Product(i);
 //     var reviewCount = newProduct.makeReviewCount();
 //     newProduct.reviews = [];
@@ -137,27 +101,59 @@ var MakeProduct = (i) => {
 //   return products
 // }
 
+/* making products*/
+var MakeProduct = (i) => {
+  var newProduct = new Product(i);
+    var reviewCount = newProduct.makeReviewCount();
+    newProduct.reviews = [];
+    for(var j = 0; j < reviewCount; j++){
+      var review = {};
+      if(i < 7600000){
+        review.body_type = newProduct.makeBody_type();
+        review.height = newProduct.makeHeight().toString();
+        review.fit_purchased = newProduct.makeFit_purchased();
+      }
+      review.category = i >= 7600000 ? 'bedding' : i > 5000000 ? 'skirt' : i > 2500000 ? 'pants' : 'dresses';
+      review.username = newProduct.makeUsername();
+      review.location = newProduct.makeLocation();
+      review.age = newProduct.makeAge();
+      review.rating = newProduct.makeRating();
+      review.title = newProduct.makeTitle();
+      review.review = newProduct.makeReview();
+      review.fits = newProduct.makeFits(review.rating);
+      review.size_purchased = newProduct.makeSize_purchased();
+      review.size = (function() {  
+        if(this.category === 'pants') {
+          return this.fits ? this.size_purchased : getRandomItem(size_purchased_pants)
+        } else {
+          return this.fits ? this.size_purchased : getRandomItem(size_purchased)
+        }
+      })();
+      review.recommends = newProduct.makeRecommends(review.rating);
+      review.date = dateFormatter(newProduct.makeDate());
+      newProduct.reviews.push(review);
+    }
+    return newProduct;
+}
 
-
-
-// let wstream = fs.createWriteStream('seeder1.json');
-
-// /* create write streams with drain */
+/* create write streams with drain */
+// let wstream = fs.createWriteStream('seedData.json');
 
 // function dataWrites(wstream, encoding, cb) {
-//   let i = 10000000;
+//   let i = 0;
 //   function write() {
 //     let ok = true;
 //     do {
 //       if (i  % 100000 === 0) {console.log(i)}
-//       i--;
-//       if (i === 0) {
+//       i++;
+//       if (i === 10000001) {
 //         wstream.write(JSON.stringify(MakeProduct(i)), encoding, cb);
+//         console.log("finish seeding")
 //       } else {
 //         ok  = wstream.write(JSON.stringify(MakeProduct(i)), encoding);
 //       }
-//     } while (i > 0  && ok);
-//     if ( i > 0) {
+//     } while (i < 10000001  && ok);
+//     if ( i < 10000001) {
 //       wstream.once('drain', write)
 //     }
 //   } 
@@ -169,33 +165,20 @@ var MakeProduct = (i) => {
 // });
 
 
+var reader = fs.createReadStream('seedData.json');
+var write = fs.createWriteStream('seedCSV.csv');
+reader.pipe(jsonexport()).pipe(write);
 
+   
+/* Seeding database functions */
+/* put in through terminal */
+  // mongoimport --db seed --collection reviews --file seedcsv.json --batchSize 1 
 
+//   var seedDatabase = function(data) {
+//   ProductModel.insertMany(data, function(err, resp) {
+//     if(err) {console.log(`error: ${err}`)}
+//     else {console.log(`response: db seeded`)}
+//   })
+// }
 
-
-// wstream.write(data, 'UTF8')
-
-// wstream.on('finish', function() {
-  //   console.log('finished writing')
-  // })
-  
-  // wstream.on('err', function(err) {
-    //   console.log(`err: ${err}`)
-    // })
-    
-    
-    
-    
-/* Seeding database functions
-  // mongoimport --db anthropologie --collection reviews --file seeder1.json --batchSize 1 *put in through terminal
-
-
-  var seedDatabase = function(data) {
-  ProductModel.insertMany(data, function(err, resp) {
-    if(err) {console.log(`error: ${err}`)}
-    else {console.log(`response: db seeded`)}
-  })
-}
-
-seedDatabase(MakeProducts());
-*/
+// seedDatabase(MakeProducts());

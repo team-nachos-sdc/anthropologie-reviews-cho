@@ -1,41 +1,34 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/3001', {useNewUrlParser: true});
+const Schema = mongoose.Schema;
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  //we're connected
-  console.log('connected to mongoose')
-})
-//schema
-var productSchema = new mongoose.Schema({
-  product_id: String,
-  product_category: String,
+mongoose.connect('mongodb://localhost/anthropologie', {useNewUrlParser: true})
+.then(() => console.log('db connected'))
+.catch((err) => console.log('db not connected'))
+
+//schema for mongoose
+var productSchema = new Schema({
+  product_id: Number,
   reviews: [{
-    username: "String",
-    location: "String",
-    age: "String",
-    body_type: "String",
-    height: "String",
+    username: String,
+    location: String,
+    age: String,
+    body_type: String,
+    height: String,
     rating: Number,
-    title: "String",
-    review: "String",
-    fits: "String",
-    fit_purchased: "String",
-    size_purchased: "String",
-    size: "String",
+    title: String,
+    review: String,
+    fits: String,
+    fit_purchased: String,
+    size_purchased: String,
+    size: String,
     recommends: Boolean,
-    date: "String",
-    category: "String"
+    date: String,
+    category: String
   }],
 })
 
-var Product = mongoose.model('productmods', productSchema);
-
-// db.dropCollection('productmods', (err, resp) => {
-//   if(err) {console.log(err)}
-//   else console.log(resp)
-// })
+var Product = mongoose.model('reviews', productSchema);
 
 module.exports = Product;
+
 

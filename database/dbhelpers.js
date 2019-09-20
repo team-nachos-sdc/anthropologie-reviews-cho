@@ -1,21 +1,32 @@
-//import ProductModel from './index.js'; NOT USING THIS
 const ProductModel = require('./index.js');
 
-const getReviews = (productId) => {
-  return ProductModel.find({product_id: productId})
-} //grabs the product reviews
+const getReview = (productId) => {
+  return ProductModel.findOne({product_id: productId})
+} 
 
-const getAllReviews = () => {
-  return ProductModel.find((err, products) => {
-    if(err) {console.log(`error: ${err}`)}
-    else {
-      return products
-    }
-  })
+const postReview = (product_id, product_category, reviews) => {
+  return ProductModel.create({ product_id, product_category, reviews })
+}
+
+
+module.exports = {
+  getReview,
+  postReview
 }
 
 
 
+
+//grabs the product reviews
+
+// const getAllReviews = () => {
+//   return ProductModel.find((err, products) => {
+//     if(err) {console.log(`error: ${err}`)}
+//     else {
+//       return products
+//     }
+//   })
+// }
 
 // getAllReviews()
 // .then((data) => {console.log(`data: ${JSON.stringify(data)}`)})
@@ -33,8 +44,3 @@ const getAllReviews = () => {
 //     console.log(`this is the data: ${JSON.stringify(data)}`)
 //   })
 //   .catch((err) => {console.log(err)})
-
-module.exports = {
-  getReviews,
-  getAllReviews
-}
