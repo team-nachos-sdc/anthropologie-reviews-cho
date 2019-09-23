@@ -4,7 +4,8 @@ const db = require('./indexSql.js');
 /* schema  */ 
 const Products = db.define('products', {
   id: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.INTEGER,
+    primaryKey: true,
     unique: true
   },
   category: {
@@ -15,7 +16,7 @@ const Products = db.define('products', {
 })
 
 const Reviews = db.define('reviews', {
-  category: {
+  category_id: {
     type: Sequelize.STRING
   },
   body_type: {
@@ -34,16 +35,16 @@ const Reviews = db.define('reviews', {
     type: Sequelize.STRING,
   },
   age: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.STRING,
   },
   rating: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.INTEGER,
   },
   title: {
     type: Sequelize.STRING
   },
   review: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1500),
   },
   fits: {
     type: Sequelize.STRING
@@ -64,12 +65,21 @@ const Reviews = db.define('reviews', {
   timestamps: false
 })
 
+// Products.hasMany(Reviews, {foreignKey: 'category_id', sourceKey: 'category'});
+// Reviews.belongsTo(Products, {foreignKey: 'category', targetKey: 'category_id'});
+
+Products.hasMany(Reviews, {foreignKey: 'category_id'});
+Reviews.belongsTo(Products, {foreignKey: 'category'});
+
 db
   .sync()
   .then(() => console.log("database has been synced"))
-  .catch(err => console.log('database not synced'))
+  .catch(err => console.log('database not synced', err))
 
 
 
-module.exports = { Products, Reviews };
+module.exports = {
+   Products, 
+   Reviews 
+  };
 
