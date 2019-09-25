@@ -1,13 +1,17 @@
 const ProductModel = require('./index.js');
 
 const getReview = (productId) => {
-  return ProductModel.findOne({product_id: productId})
+  let getId = Math.floor(Math.random() * 10000001) + 1 
+  return ProductModel.findOne({product_id: getId})
 } 
 
 const postReview = (product_id, reviews) => {
   console.log(product_id);
   return ProductModel.create({ product_id, reviews })
 }
+
+
+
 
 
 module.exports = {
