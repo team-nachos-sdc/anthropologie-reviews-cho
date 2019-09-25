@@ -8,6 +8,10 @@ const getOne = (req, res) => {
     .catch(err => console.log(`error: ${err}`))
 }
 
+// const getOne = (req, res) => {
+// }
+
+
 const postOne = (req, res) => {
   let { product_id, reviews } = req.body
   console.log("tagging it",req.body)

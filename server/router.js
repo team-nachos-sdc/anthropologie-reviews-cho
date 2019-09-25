@@ -9,7 +9,8 @@ const {
 
 
 router
-  .route('/review/:productId')
+  // .route('/review/:productId')
+  .route('/review')
   .get(getOne)
 
   router
