@@ -7,7 +7,8 @@
 // // } 
 
 // const getReview = (productId) => {
-//    return db.query(`SELECT * FROM products RIGHT JOIN reviews ON products.category = reviews.category_id WHERE products.id = ${productId}`)
+//   let getId = Math.floor(Math.random() * 10000001) + 1 
+//    return db.query(`SELECT * FROM products RIGHT JOIN reviews ON products.category = reviews.category_id WHERE products.id = ${getId}`)
 // }
 
 

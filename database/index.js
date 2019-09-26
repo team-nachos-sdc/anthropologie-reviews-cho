@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost/anthropologie', {useNewUrlParser: true})
 .then(() => console.log('db connected'))
-.catch((err) => console.log('db not connected'))
+.catch((err) => console.log('db not connected', err))
 
 //schema for mongoose
 var productSchema = new Schema({
@@ -26,6 +26,11 @@ var productSchema = new Schema({
     category: String
   }],
 })
+
+
+productSchema.index({"product_id": 1})
+  .then(() => console.log("index created"))
+  .catch((err) => console.log("index err",err))
 
 var Product = mongoose.model('reviews', productSchema);
 

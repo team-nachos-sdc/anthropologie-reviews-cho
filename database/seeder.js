@@ -1,7 +1,6 @@
 const ProductModel = require('./index.js');
 const faker = require('faker');
 const fs = require('fs');
-const jsonexport = require('jsonexport')
 
 var age = ['18-24','25-29','30-34','35-39','40-44','45-49','50-55','Over 55']
 var body_type = ['Hourglass','Straight','Rounded Torso',
@@ -39,7 +38,7 @@ var Product = function(product_id){
 }
 
 Product.prototype.makeRating = function() {return randomGen(5, 1)};
-Product.prototype.makeReviewCount = function() {return randomGen(5, 1)};
+Product.prototype.makeReviewCount = function() {return randomGen(4, 0)};
 Product.prototype.makeUsername = function() {return faker.internet.userName()};
 Product.prototype.makeLocation = function() {return faker.address.city() + ', ' + faker.address.stateAbbr()};
 Product.prototype.makeAge = function() {return getRandomItem(age)};
@@ -137,37 +136,37 @@ var MakeProduct = (i) => {
 }
 
 /* create write streams with drain */
-// let wstream = fs.createWriteStream('seedData.json');
+let wstream = fs.createWriteStream('seedData2.json');
 
-// function dataWrites(wstream, encoding, cb) {
-//   let i = 0;
-//   function write() {
-//     let ok = true;
-//     do {
-//       if (i  % 100000 === 0) {console.log(i)}
-//       i++;
-//       if (i === 10000001) {
-//         wstream.write(JSON.stringify(MakeProduct(i)), encoding, cb);
-//         console.log("finish seeding")
-//       } else {
-//         ok  = wstream.write(JSON.stringify(MakeProduct(i)), encoding);
-//       }
-//     } while (i < 10000001  && ok);
-//     if ( i < 10000001) {
-//       wstream.once('drain', write)
-//     }
-//   } 
-//   write()
-// };
+function dataWrites(wstream, encoding, cb) {
+  let i = 0;
+  function write() {
+    let ok = true;
+    do {
+      if (i  % 100000 === 0) {console.log(i)}
+      i++;
+      if (i === 10000001) {
+        wstream.write(JSON.stringify(MakeProduct(i)), encoding, cb);
+        console.log("finish seeding")
+      } else {
+        ok  = wstream.write(JSON.stringify(MakeProduct(i)), encoding);
+      }
+    } while (i < 10000001  && ok);
+    if ( i < 10000001) {
+      wstream.once('drain', write)
+    }
+  } 
+  write()
+};
 
-// dataWrites(wstream, 'utf8', () => {
-//   wstream.end()
-// });
+dataWrites(wstream, 'utf8', () => {
+  wstream.end()
+});
 
 
-var reader = fs.createReadStream('seedData.json');
-var write = fs.createWriteStream('seedCSV.csv');
-reader.pipe(jsonexport()).pipe(write);
+// var reader = fs.createReadStream('seedData.json');
+// var write = fs.createWriteStream('seedCSV.csv');
+// reader.pipe(jsonexport()).pipe(write);
 
    
 /* Seeding database functions */
