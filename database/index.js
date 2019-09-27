@@ -29,8 +29,6 @@ var productSchema = new Schema({
 
 
 productSchema.index({"product_id": 1})
-  .then(() => console.log("index created"))
-  .catch((err) => console.log("index err",err))
 
 var Product = mongoose.model('reviews', productSchema);
 
