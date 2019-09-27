@@ -171,7 +171,7 @@ dataWrites(wstream, 'utf8', () => {
    
 /* Seeding database functions */
 /* put in through terminal */
-  // mongoimport --db seed --collection reviews --file seedcsv.json --batchSize 1 
+  // mongoimport --db anthropologie --collection reviews --drop --file seedData.json --batchSize 1 
 
 //   var seedDatabase = function(data) {
 //   ProductModel.insertMany(data, function(err, resp) {

@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/anthropologie', {useNewUrlParser: true})
-.then(() => console.log('db connected'))
-.catch((err) => console.log('db not connected', err))
+mongoose.connect('mongodb://paul:password@18.191.69.198/anthropologie', {useNewUrlParser: true})
+  .then(() => console.log('db connected'))
+  .catch((err) => console.log('db not connected'))
 
 //schema for mongoose
 var productSchema = new Schema({

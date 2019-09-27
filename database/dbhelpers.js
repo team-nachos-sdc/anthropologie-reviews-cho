@@ -11,15 +11,10 @@ const postReview = (product_id, reviews) => {
 }
 
 
-
-
-
 module.exports = {
   getReview,
   postReview
 }
-
-
 
 
 //grabs the product reviews
