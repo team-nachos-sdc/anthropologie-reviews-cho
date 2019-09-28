@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://paul:password@18.191.69.198/anthropologie', {useNewUrlParser: true})
+mongoose.connect('mongodb://paul:password@18.191.69.198/anthropologie', {useNewUrlParser: true, poolSize:5})
   .then(() => console.log('db connected'))
   .catch((err) => console.log('db not connected'))
 

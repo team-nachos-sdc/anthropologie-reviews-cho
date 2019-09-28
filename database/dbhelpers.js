@@ -2,7 +2,7 @@ const ProductModel = require('./index.js');
 
 const getReview = (productId) => {
   let getId = Math.floor(Math.random() * 10000001) + 1 
-  return ProductModel.findOne({product_id: getId})
+  return ProductModel.findOne({product_id: getId}).lean()
 } 
 
 const postReview = (product_id, reviews) => {
