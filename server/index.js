@@ -1,4 +1,4 @@
-const nr = require('newrelic')
+// const nr = require('newrelic');
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -16,7 +16,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use("/api", router);
-app.use("/loaderio-bdd871c28a973f7949ac51502c2a1afd", ((req,res) => res.send("loaderio-bdd871c28a973f7949ac51502c2a1afd")));
+app.use("/loaderio-47422d786c6d1b9926c239181cec70e2", ((req,res) => res.send("loaderio-47422d786c6d1b9926c239181cec70e2")));
 
 
 
