@@ -6,12 +6,12 @@ const port = 3005;
 const router = require('./router.js');
 
 //middleware
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const parser = require('body-parser');
 // const proxy = require('http-proxy-middleware');
 
 //use middleware
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../client/dist')));
